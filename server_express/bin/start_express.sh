@@ -1,4 +1,4 @@
 git pull
-npm install
-npm audit fix
+sudo npm install
+sudo npm audit fix
 bin/www
