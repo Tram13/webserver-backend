@@ -13,7 +13,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {api: undefined, fetching: true};
-        this.url = "http://192.168.0.2:9000"
+        this.url = "http://tram13.me:9000"
     }
 
     componentDidMount() {
