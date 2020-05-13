@@ -6,6 +6,7 @@ import LoadingAnimation from "./Components/LoadingAnimation";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Minecraft from "./Components/Content/Minecraft";
 import Wout from "./Components/Content/Wout";
+import Jonas from "./Components/Content/Jonas";
 
 class App extends React.Component {
     constructor(props) {
@@ -50,7 +51,7 @@ class App extends React.Component {
                             <Wout api={this.state.api}/>
                         </Route>
                         <Route path="/jonas">
-                            <h1>Jonas</h1>
+                            <Jonas api={this.state.api}/>
                         </Route>
                         <Route path="/minecraft">
                             <Minecraft/>
