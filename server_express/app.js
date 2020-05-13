@@ -6,11 +6,15 @@ const logger = require('morgan');
 const createError = require('http-errors');
 const indexRouter = require('./routes/index');
 const cors = require("cors");
+const helmet = require('helmet');
+const compression = require('compression');
 
 // Creating express instance
 const app = express();
 
 // Setting up middleware
+app.use(compression())
+app.use(helmet());
 app.use(cors());
 app.use(logger('dev', {}));
 app.use(cookieParser());
