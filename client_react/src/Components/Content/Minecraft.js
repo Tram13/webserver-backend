@@ -7,11 +7,14 @@ class Minecraft extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="menubar-padded">
                 <h1>Minecraft toegangsportaal</h1>
                 <h4>Welkom op het wereldwijde web, 90s-style.</h4>
                 <p>
                     Koop hier je maandticket voor de SkyFactory-server! Huidige maand: mei
+                </p>
+                <p>
+                    Preorders voor juni staan ook al open.
                 </p>
                 <p>
                     De inkomsten worden opnieuw geïnvesteerd in de hardware van de server en deze website.
