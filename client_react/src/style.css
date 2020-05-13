@@ -1,0 +1,9 @@
+@media only screen and (min-width: 993px) {
+    .menubar-padded {
+        padding-left: 30px
+    }
+}
+.clickable
+{
+    cursor: pointer
+}

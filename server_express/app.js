@@ -5,11 +5,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const createError = require('http-errors');
 const indexRouter = require('./routes/index');
+const cors = require("cors");
 
 // Creating express instance
 const app = express();
 
 // Setting up middleware
+app.use(cors());
 app.use(logger('dev', {}));
 app.use(cookieParser());
 app.use(express.json());

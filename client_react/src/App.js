@@ -1,26 +1,74 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './style.css'
+import 'materialize-css/dist/css/materialize.min.css'
+import NavBar from "./Components/NavBar/NavBar";
+import LoadingAnimation from "./Components/LoadingAnimation";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Minecraft from "./Components/Content/Minecraft";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {data: null, fetching: true};
+        this.url = "http://localhost:9000"
+    }
+
+    // TODO: kan prob naar mainWindow verhuisd worden, of van deze klasse de mainwindow maken?
+    componentDidMount() {
+        fetch(this.url).then(
+            response => (response.json()
+                    .then((r) =>
+                        this.setState(
+                            {
+                                data: r,
+                                fetching: false
+                            }
+                        )
+                    )
+            )
+        )
+    }
+
+    render() {
+        if (this.state.fetching) {
+            return (
+                <div>
+                    <div>
+                        <Router>
+                            <NavBar/>
+                            <Switch>
+                                <Route path={""}>
+                                    <LoadingAnimation/>
+                                </Route>
+                            </Switch>
+                        </Router>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <Router>
+                        <NavBar/>
+                        <Switch>
+                            <Route path="/wout">
+                                <h1>wout</h1>
+                            </Route>
+                            <Route path="/jonas">
+                                <h1>Jonas</h1>
+                            </Route>
+                            <Route path="/minecraft">
+                                <Minecraft/>
+                            </Route>
+                            <Route path={""}>
+                                <h1>Home</h1>
+                            </Route>
+                        </Switch>
+                    </Router>
+                </div>
+            )
+        }
+    }
 }
 
 export default App;
