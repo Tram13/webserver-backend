@@ -18,7 +18,7 @@ class NavBarSide extends React.Component {
         return (
             <ul className="sidenav" id="mobile-demo">
                 <li className={(this.props.selected === "" ? "active " : "") + "sidenav-close clickable"}>
-                    <Link to="" onClick={this.rickroll} className="nav-content menubar-padded">Home</Link>
+                    <Link to="" onClick={this.rickroll} className="nav-content padded-left">Home</Link>
                 </li>
                 <li><div className="divider"/></li>
                 <li className={(this.props.selected === "Wout" ? "active " : "") + "sidenav-close clickable"}><Link to="/wout">Wout</Link></li>
