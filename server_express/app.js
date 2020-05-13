@@ -17,24 +17,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-
-// Whitelist of static folder
-app.use('/public', (req, res, next) => {
-    // Will only allow files in /public/images/ ** name in whitelistedImages **
-    const whitelistedImages = "friendship.png|uwma.png"
-    const regex = new RegExp("^\/images\/(" + whitelistedImages + ")$")
-    const isWhitelisted = req.url.match(regex)
-    if (!isWhitelisted) {
-        return res.status(403).end('403 Forbidden')
-    }
-    next()
-})
-// Setting alias for /public/images
-app.use('/static_images', express.static(path.join(__dirname, 'public', 'images')));
-
-// Setting Main Router
-app.use('/', indexRouter);
-
 // Redirect all requests with trailing '/' to one without
 app.use((req, res, next) => {
     const test = /\?[^]*\//.test(req.url);
@@ -43,6 +25,26 @@ app.use((req, res, next) => {
     else
         next();
 });
+
+// Enable static serving
+app.use(express.static(path.join(__dirname, 'public')))
+//app.use(express.static(path.join(__dirname, 'public', 'images')));
+
+// Whitelist of static folder
+app.use('/public', (req, res, next) => {
+    // Will only allow files in /public/images/ ** name in whitelistedImages **
+    // Split with "|"
+    const whitelistedImages = "friendship.png|uwma.png"
+    const regex = new RegExp("^\/images\/(" + whitelistedImages + ")$")
+    const isWhitelisted = req.url.match(regex)
+    if (!isWhitelisted) {
+        return res.status(403).end('403 Forbidden')
+    }
+    next()
+})
+
+// Setting Main Router
+app.use('/', indexRouter);
 
 // CATCH 404 and forward to error handler
 app.use(function (req, res, next) {

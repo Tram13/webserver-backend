@@ -13,7 +13,6 @@ class App extends React.Component {
         this.url = "http://localhost:9000"
     }
 
-    // TODO: kan prob naar mainWindow verhuisd worden, of van deze klasse de mainwindow maken?
     componentDidMount() {
         fetch(this.url).then(
             response => (response.json()
