@@ -32,40 +32,34 @@ class App extends React.Component {
     render() {
         if (this.state.fetching) {
             return (
-                <div>
-                    <div>
-                        <Router>
-                            <NavBar/>
-                            <Switch>
-                                <Route path={""}>
-                                    <LoadingAnimation/>
-                                </Route>
-                            </Switch>
-                        </Router>
-                    </div>
-                </div>
+                <Router>
+                    <NavBar/>
+                    <Switch>
+                        <Route path={""}>
+                            <LoadingAnimation/>
+                        </Route>
+                    </Switch>
+                </Router>
             )
         } else {
             return (
-                <div>
-                    <Router>
-                        <NavBar/>
-                        <Switch>
-                            <Route path="/wout">
-                                <h1>wout</h1>
-                            </Route>
-                            <Route path="/jonas">
-                                <h1>Jonas</h1>
-                            </Route>
-                            <Route path="/minecraft">
-                                <Minecraft/>
-                            </Route>
-                            <Route path={""}>
-                                <h1>Home</h1>
-                            </Route>
-                        </Switch>
-                    </Router>
-                </div>
+                <Router>
+                    <NavBar/>
+                    <Switch>
+                        <Route path="/wout">
+                            <h1>wout</h1>
+                        </Route>
+                        <Route path="/jonas">
+                            <h1>Jonas</h1>
+                        </Route>
+                        <Route path="/minecraft">
+                            <Minecraft/>
+                        </Route>
+                        <Route path={""}>
+                            <h1>Home</h1>
+                        </Route>
+                    </Switch>
+                </Router>
             )
         }
     }
