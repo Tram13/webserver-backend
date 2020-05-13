@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const indexController = require("../controllers/IndexController")
 const woutRouter = require('../routes/wout');
-
-// Home Page
-router.get('/', function(req, res) {
-    res.json({message: "main page"})
-});
 
 // Wout-router
 router.use('/wout/', woutRouter);
+
+// Home Page
+router.get('/', indexController.index);
 
 module.exports = router;

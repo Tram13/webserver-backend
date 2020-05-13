@@ -1,12 +1,8 @@
 const express = require('express');
+const WoutController = require('../controllers/WoutController')
 const router = express.Router();
 
 // wout
-router.get('/', function(req, res) {
-    res.json({
-        message: "wout page",
-
-    })
-});
+router.get('/', WoutController.imagesList);
 
 module.exports = router;
