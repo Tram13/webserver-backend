@@ -19,11 +19,11 @@ class NavBarTop extends React.Component {
             <nav>
                 <div className="nav-wrapper">
                     <Link to="" onClick={this.rickroll} className="nav-content menubar-padded">Tram13</Link>
-                    <Link onClick={(e) => e.preventDefault()} data-target="mobile-demo" className="sidenav-trigger" to={void(0)}>
+                    <a onClick={(e) => e.preventDefault()} data-target="mobile-demo" className="sidenav-trigger" href={"#!"}>
                         <i className="material-icons hide-on-med-and-up">
                             Pages
                         </i>
-                    </Link>
+                    </a>
                     <ul className="right hide-on-small-and-down">
                         <li className={(this.props.selected === "Wout" ? "active " : "") + "sidenav-close"}><Link to="/wout">Wout</Link></li>
                         <li className={(this.props.selected === "Jonas" ? "active " : "") + "sidenav-close"}><Link to="/jonas">Jonas</Link></li>

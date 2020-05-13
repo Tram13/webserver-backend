@@ -4,9 +4,6 @@ import NavBarSide from "./NavBarSide";
 import NavBarTop from "./NavBarTop";
 
 class NavBar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         M.AutoInit();
