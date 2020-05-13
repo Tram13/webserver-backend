@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Minecraft from "./Components/Content/Minecraft";
 import Wout from "./Components/Content/Wout";
 import Jonas from "./Components/Content/Jonas";
+import Home from "./Components/Content/Home";
 
 class App extends React.Component {
     constructor(props) {
@@ -57,7 +58,7 @@ class App extends React.Component {
                             <Minecraft/>
                         </Route>
                         <Route path={""}>
-                            <h1>Home</h1>
+                            <Home api={this.state.api}/>
                         </Route>
                     </Switch>
                 </Router>

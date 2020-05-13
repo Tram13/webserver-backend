@@ -64,10 +64,10 @@ app.use(function (err, req, res, next) {
 function isWhitelisted(req) {
     // Will only allow files in /public/images/ ** name in whitelistedImages **
     // Split with "|"
-    const whitelistedIndex  = "friendship.png"
+    const whitelistedHome  = "home/friendship.png"
     const whitelistedWout  = "wout/wout_kop1.jpg|wout/wout_kop2.jpg|wout/wout_kop3.png"
     const whitelistedJonas = "jonas/jonas_kop1.png|jonas/jonas_kop2.png"
-    const whitelists = [whitelistedIndex, whitelistedWout, whitelistedJonas]
+    const whitelists = [whitelistedHome, whitelistedWout, whitelistedJonas]
     let isWhitelisted = false
     for (let whitelist of whitelists) {
         const regex = new RegExp("^\/(" + whitelist + ")$")
