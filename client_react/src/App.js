@@ -5,11 +5,12 @@ import NavBar from "./Components/NavBar/NavBar";
 import LoadingAnimation from "./Components/LoadingAnimation";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Minecraft from "./Components/Content/Minecraft";
+import Wout from "./Components/Content/Wout";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {data: null, fetching: true};
+        this.state = {api: undefined, fetching: true};
         this.url = "http://localhost:9000"
     }
 
@@ -19,7 +20,7 @@ class App extends React.Component {
                     .then((r) =>
                         this.setState(
                             {
-                                data: r,
+                                api: r,
                                 fetching: false
                             }
                         )
@@ -46,7 +47,7 @@ class App extends React.Component {
                     <NavBar/>
                     <Switch>
                         <Route path="/wout">
-                            <h1>wout</h1>
+                            <Wout api={this.state.api}/>
                         </Route>
                         <Route path="/jonas">
                             <h1>Jonas</h1>

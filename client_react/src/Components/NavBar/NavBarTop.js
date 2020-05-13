@@ -20,7 +20,7 @@ class NavBarTop extends React.Component {
                 <div className="nav-wrapper">
                     <Link to="" onClick={this.rickroll} className="nav-content menubar-padded">Tram13</Link>
                     <a onClick={(e) => e.preventDefault()} data-target="mobile-demo" className="sidenav-trigger" href={"#!"}>
-                        <i className="material-icons hide-on-med-and-up">
+                        <i className="hide-on-med-and-up">
                             Pages
                         </i>
                     </a>
