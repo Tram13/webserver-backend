@@ -5,7 +5,7 @@ exports.index = function(req, res) {
         baseUrl: index,
         wout: index + "/wout",
         jonas: index + "/jonas",
-        minecraft: index + "/minecraftkaka",
+        minecraft: index + "/minecraft",
         home: index + "/home"
     });
 }
