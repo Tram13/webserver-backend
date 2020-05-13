@@ -47,9 +47,9 @@ class Wout extends React.Component {
                     <h3>Wout zuigt ballen in WebDev</h3>
                     <div>
                         <h5>when you sudo reboot and it doesn't work anymore</h5>
-                        <table className={"no-border"}>
+                        <table>
                             <tbody>
-                            <tr>
+                            <tr className={"no-border"}>
                                 <td>{kop1}</td>
                                 <td>{kop2}</td>
                             </tr>

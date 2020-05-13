@@ -3,9 +3,11 @@
         padding-left: 30px
     }
 }
+
 .clickable {
     cursor: pointer
 }
+
 .column {
     float: left;
     width: 50%;
@@ -19,5 +21,5 @@
     display: table;
 }
 .no-border {
-    border: 0;
+    border: 0 !important;
 }
