@@ -26,22 +26,17 @@ app.use((req, res, next) => {
         next();
 });
 
-// Enable static serving
-app.use(express.static(path.join(__dirname, 'public')))
-//app.use(express.static(path.join(__dirname, 'public', 'images')));
-
 // Whitelist of static folder
-app.use('/public', (req, res, next) => {
-    // Will only allow files in /public/images/ ** name in whitelistedImages **
-    // Split with "|"
-    const whitelistedImages = "friendship.png|uwma.png"
-    const regex = new RegExp("^\/images\/(" + whitelistedImages + ")$")
-    const isWhitelisted = req.url.match(regex)
-    if (!isWhitelisted) {
+app.use('/static_images', (req, res, next) => {
+    if (!isWhitelisted(req)) {
         return res.status(403).end('403 Forbidden')
+    } else {
+        next()
     }
-    next()
 })
+
+// Enable static serving
+app.use('/static_images', express.static(path.join(__dirname, 'public', 'images')));
 
 // Setting Main Router
 app.use('/', indexRouter);
@@ -65,5 +60,21 @@ app.use(function (err, req, res, next) {
         }
     });
 });
+
+function isWhitelisted(req) {
+    // Will only allow files in /public/images/ ** name in whitelistedImages **
+    // Split with "|"
+    const whitelistedRoot = "friendship.png|uwma.png"
+    const whitelistedWout = "wout/wout_kop1.jpg|wout/wout_kop2.jpg|wout/wout_kop3.png"
+    const whitelists = [whitelistedRoot, whitelistedWout]
+    let isWhitelisted = false
+    for (let whitelist of whitelists) {
+        const regex = new RegExp("^\/(" + whitelist + ")$")
+        if (req.url.match(regex)) {
+            isWhitelisted = true
+        }
+    }
+    return isWhitelisted
+}
 
 module.exports = app;
