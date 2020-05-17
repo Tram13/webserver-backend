@@ -55,7 +55,7 @@ class App extends React.Component {
                             <Jonas api={this.state.api}/>
                         </Route>
                         <Route path="/minecraft">
-                            <Minecraft/>
+                            <Minecraft api={this.state.api}/>
                         </Route>
                         <Route path={""}>
                             <Home api={this.state.api}/>
