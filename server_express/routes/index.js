@@ -16,7 +16,7 @@ router.use('/jonas/', jonasRouter);
 router.use('/home/', homeRouter)
 
 // Minecraft-router
-router.use('/home/', minecraftRouter)
+router.use('/minecraft/', minecraftRouter)
 
 // Index Page
 router.get('/', indexController.index);
