@@ -1,5 +1,5 @@
 exports.index = function(req, res) {
-    const index = "http://api.tram13.me"
+    const index = "https://api.tram13.me"
     res.status(200).json({
         index : index,
         baseUrl: index,

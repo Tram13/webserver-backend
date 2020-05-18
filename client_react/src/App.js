@@ -13,7 +13,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {api: undefined, fetching: true};
-        this.url = "http://api.tram13.me"
+        this.url = "https://api.tram13.me"
     }
 
     componentDidMount() {

@@ -1,5 +1,5 @@
 exports.imagesList = function(req, res) {
-    const index = "http://api.tram13.me"
+    const index = "https://api.tram13.me"
     const baseUrl = index + "/static_images/jonas/"
     res.status(200).json({
         index: index,
