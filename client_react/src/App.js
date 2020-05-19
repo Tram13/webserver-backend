@@ -8,6 +8,7 @@ import Minecraft from "./Components/Content/Minecraft";
 import Wout from "./Components/Content/Wout";
 import Jonas from "./Components/Content/Jonas";
 import Home from "./Components/Content/Home";
+import Error404 from "./Components/Error404";
 
 class App extends React.Component {
     constructor(props) {
@@ -52,17 +53,20 @@ class App extends React.Component {
                 <Router>
                     <NavBar selected={this.state.selected}/>
                     <Switch>
-                        <Route path="/wout">
+                        <Route exact path="/wout">
                             <Wout api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
-                        <Route path="/jonas">
+                        <Route exact path="/jonas">
                             <Jonas api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
-                        <Route path="/minecraft">
+                        <Route exact path="/minecraft">
                             <Minecraft api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
-                        <Route path={""}>
+                        <Route exact path={"/"}>
                             <Home api={this.state.api} updateSelected={this.updateSelected}/>
+                        </Route>
+                        <Route>
+                            <Error404 updateSelected={this.updateSelected}/>
                         </Route>
                     </Switch>
                 </Router>

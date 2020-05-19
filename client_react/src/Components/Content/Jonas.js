@@ -44,12 +44,18 @@ class Jonas extends React.Component {
                 <div className={"padded-left"}>
                     <h3>Jonas is een dikke sloef</h3>
                     <div>
-                        <h5>Jonas komt niet naar HashCode omdat hij ballen zuigt.</h5>
-                        {kop1}
-                    </div>
-                    <div>
-                        <h5>We waren 5de btw, take that Jonas</h5>
-                        {kop2}
+                        <table>
+                            <tbody>
+                            <tr className={"no-border"}>
+                                <td><h5>Jonas komt niet naar HashCode omdat hij ballen zuigt.</h5></td>
+                                <td><h5>We waren 5de btw, take that Jonas</h5></td>
+                            </tr>
+                            <tr className={"no-border"}>
+                                <td>{kop1}</td>
+                                <td>{kop2}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             )
