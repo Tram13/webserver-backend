@@ -1,5 +1,5 @@
 const express = require('express');
-const minecraftController = require('../controllers/MinecraftController')
+const minecraftController = require('../controllers/MinecraftController');
 const router = express.Router();
 
 // minecraft

@@ -12,7 +12,7 @@ class Jonas extends React.Component {
     }
 
     componentDidMount() {
-        const url = this.props.api["jonas"]
+        const url = this.props.api["jonas"];
         fetch(url).then(
             response => (response.json()
                     .then((r) => {
@@ -21,7 +21,7 @@ class Jonas extends React.Component {
                                     data: r,
                                     fetching: false
                                 }
-                            )
+                            );
                             M.AutoInit()
                         }
                     )
@@ -31,9 +31,9 @@ class Jonas extends React.Component {
 
     render() {
         const kop1 = <img className="materialboxed responsive-img" width="650" src={this.state.data["kop1"]}
-                          alt="Kop 1"/>
+                          alt="Kop 1"/>;
         const kop2 = <img className="materialboxed responsive-img" width="650" src={this.state.data["kop2"]}
-                          alt="Kop 2"/>
+                          alt="Kop 2"/>;
 
         if (this.state.fetching) {
             return (

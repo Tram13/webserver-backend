@@ -1,5 +1,5 @@
 const express = require('express');
-const WoutController = require('../controllers/WoutController')
+const WoutController = require('../controllers/WoutController');
 const router = express.Router();
 
 // wout

@@ -12,7 +12,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        const url = this.props.api["home"]
+        const url = this.props.api["home"];
         fetch(url).then(
             response => (response.json()
                     .then((r) => {
@@ -21,7 +21,7 @@ class Home extends React.Component {
                                     data: r,
                                     fetching: false
                                 }
-                            )
+                            );
                             M.AutoInit()
                         }
                     )
@@ -31,7 +31,7 @@ class Home extends React.Component {
 
     render() {
         const friendship = <img className="materialboxed responsive-img" width="650" src={this.state.data["friendship"]}
-                          alt="Friendship is beautiful"/>
+                          alt="Friendship is beautiful"/>;
         if (this.state.fetching) {
             return (
                 <LoadingAnimation/>

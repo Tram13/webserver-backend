@@ -10,7 +10,7 @@ class Minecraft extends React.Component {
     }
 
     componentDidMount() {
-        const url = this.props.api["minecraft"]
+        const url = this.props.api["minecraft"];
         fetch(url).then(
             response => (response.json()
                     .then((r) => {

@@ -19,7 +19,7 @@ class App extends React.Component {
 
     updateSelected = (selected) => {
         this.setState({selected: selected});
-    }
+    };
 
     componentDidMount() {
         fetch(this.url).then(

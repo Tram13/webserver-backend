@@ -12,7 +12,7 @@ class NavBarTop extends React.Component {
         if (isRickroll) {
             window.open(this.rickrollUrl, "_blank");
         }
-    }
+    };
 
     render() {
         return (

@@ -3,11 +3,6 @@
         padding-left: 30px
     }
 }
-
-.clickable {
-    cursor: pointer
-}
-
 .column {
     float: left;
     width: 50%;

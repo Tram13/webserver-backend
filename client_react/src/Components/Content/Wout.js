@@ -12,7 +12,7 @@ class Wout extends React.Component {
     }
 
     componentDidMount() {
-        const url = this.props.api["wout"]
+        const url = this.props.api["wout"];
         fetch(url).then(
             response => (response.json()
                     .then((r) => {
@@ -21,7 +21,7 @@ class Wout extends React.Component {
                                     data: r,
                                     fetching: false
                                 }
-                            )
+                            );
                             M.AutoInit()
                         }
                     )
@@ -31,11 +31,11 @@ class Wout extends React.Component {
 
     render() {
         const kop1 = <img className="materialboxed responsive-img" width="650" src={this.state.data["kop1"]}
-                          alt="Kop 1"/>
+                          alt="Kop 1"/>;
         const kop2 = <img className="materialboxed responsive-img" width="650" src={this.state.data["kop2"]}
-                          alt="Kop 2"/>
+                          alt="Kop 2"/>;
         const kop3 = <img className="materialboxed responsive-img" width="650" src={this.state.data["kop3"]}
-                          alt="Kop 3"/>
+                          alt="Kop 3"/>;
 
 
         if (this.state.fetching) {

@@ -13,7 +13,7 @@ const compression = require('compression');
 const app = express();
 
 // Setting up middleware
-app.use(compression())
+app.use(compression());
 app.use(helmet());
 app.use(cors());
 app.use(logger('dev', {}));
@@ -37,7 +37,7 @@ app.use('/static_images', (req, res, next) => {
     } else {
         next()
     }
-})
+});
 
 // Enable static serving
 app.use('/static_images', express.static(path.join(__dirname, 'public', 'images')));
@@ -51,7 +51,7 @@ app.use(function (req, res, next) {
 });
 
 // Error Handler
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -68,13 +68,13 @@ app.use(function (err, req, res, next) {
 function isWhitelisted(req) {
     // Will only allow files in /public/images/ ** name in whitelistedImages **
     // Split with "|"
-    const whitelistedHome  = "home/friendship.png"
-    const whitelistedWout  = "wout/wout_kop1.jpg|wout/wout_kop2.jpg|wout/wout_kop3.png"
-    const whitelistedJonas = "jonas/jonas_kop1.png|jonas/jonas_kop2.png"
-    const whitelists = [whitelistedHome, whitelistedWout, whitelistedJonas]
-    let isWhitelisted = false
+    const whitelistedHome  = "home/friendship.png";
+    const whitelistedWout  = "wout/wout_kop1.jpg|wout/wout_kop2.jpg|wout/wout_kop3.png";
+    const whitelistedJonas = "jonas/jonas_kop1.png|jonas/jonas_kop2.png";
+    const whitelists = [whitelistedHome, whitelistedWout, whitelistedJonas];
+    let isWhitelisted = false;
     for (let whitelist of whitelists) {
-        const regex = new RegExp("^\/(" + whitelist + ")$")
+        const regex = new RegExp("^\/(" + whitelist + ")$");
         if (req.url.match(regex)) {
             isWhitelisted = true
         }
