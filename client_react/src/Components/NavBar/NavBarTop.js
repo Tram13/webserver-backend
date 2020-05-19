@@ -25,9 +25,9 @@ class NavBarTop extends React.Component {
                         </i>
                     </a>
                     <ul className="right hide-on-small-and-down">
-                        <li className={(this.props.selected === "Wout" ? "active " : "") + "sidenav-close"}><Link to="/wout">Wout</Link></li>
-                        <li className={(this.props.selected === "Jonas" ? "active " : "") + "sidenav-close"}><Link to="/jonas">Jonas</Link></li>
-                        <li className={(this.props.selected === "Minecraft" ? "active " : "") + "sidenav-close"}><Link to="/minecraft">Minecraft</Link></li>
+                        <li className={(this.props.selected === "wout" ? "active " : "") + "sidenav-close"}><Link to="/wout">Wout</Link></li>
+                        <li className={(this.props.selected === "jonas" ? "active " : "") + "sidenav-close"}><Link to="/jonas">Jonas</Link></li>
+                        <li className={(this.props.selected === "minecraft" ? "active " : "") + "sidenav-close"}><Link to="/minecraft">Minecraft</Link></li>
                     </ul>
                 </div>
             </nav>

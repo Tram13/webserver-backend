@@ -14,8 +14,8 @@ class NavBar extends React.Component {
     render() {
         return (
             <div>
-                <NavBarTop/>
-                <NavBarSide/>
+                <NavBarTop selected={this.props.selected}/>
+                <NavBarSide selected={this.props.selected}/>
             </div>
         )
     }

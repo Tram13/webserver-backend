@@ -8,6 +8,7 @@ class Wout extends React.Component {
     constructor(props) {
         super(props);
         this.state = {data: {}, fetching: true};
+        this.props.updateSelected("wout");
     }
 
     componentDidMount() {

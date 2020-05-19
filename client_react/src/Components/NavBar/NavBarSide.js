@@ -21,9 +21,9 @@ class NavBarSide extends React.Component {
                     <Link to="" onClick={this.rickroll} className="nav-content padded-left">Home</Link>
                 </li>
                 <li><div className="divider"/></li>
-                <li className={(this.props.selected === "Wout" ? "active " : "") + "sidenav-close clickable"}><Link to="/wout">Wout</Link></li>
-                <li className={(this.props.selected === "Jonas" ? "active " : "") + "sidenav-close clickable"}><Link to="/jonas">Jonas</Link></li>
-                <li className={(this.props.selected === "Minecraft" ? "active " : "") + "sidenav-close clickable"}><Link to="/minecraft">Minecraft</Link></li>
+                <li className={(this.props.selected === "wout" ? "active " : "") + "sidenav-close clickable"}><Link to="/wout">Wout</Link></li>
+                <li className={(this.props.selected === "jonas" ? "active " : "") + "sidenav-close clickable"}><Link to="/jonas">Jonas</Link></li>
+                <li className={(this.props.selected === "minecraft" ? "active " : "") + "sidenav-close clickable"}><Link to="/minecraft">Minecraft</Link></li>
             </ul>
         )
     }

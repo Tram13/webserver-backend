@@ -16,6 +16,10 @@ class App extends React.Component {
         this.url = "https://api.tram13.me"
     }
 
+    updateSelected = (selected) => {
+        this.setState({selected: selected});
+    }
+
     componentDidMount() {
         fetch(this.url).then(
             response => (response.json()
@@ -35,7 +39,7 @@ class App extends React.Component {
         if (this.state.fetching) {
             return (
                 <Router>
-                    <NavBar/>
+                    <NavBar selected={this.state.selected}/>
                     <Switch>
                         <Route path={""}>
                             <LoadingAnimation/>
@@ -46,19 +50,19 @@ class App extends React.Component {
         } else {
             return (
                 <Router>
-                    <NavBar/>
+                    <NavBar selected={this.state.selected}/>
                     <Switch>
                         <Route path="/wout">
-                            <Wout api={this.state.api}/>
+                            <Wout api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
                         <Route path="/jonas">
-                            <Jonas api={this.state.api}/>
+                            <Jonas api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
                         <Route path="/minecraft">
-                            <Minecraft api={this.state.api}/>
+                            <Minecraft api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
                         <Route path={""}>
-                            <Home api={this.state.api}/>
+                            <Home api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
                     </Switch>
                 </Router>
