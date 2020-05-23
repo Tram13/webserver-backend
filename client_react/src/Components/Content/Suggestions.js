@@ -15,22 +15,22 @@ class Suggestions extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-    }
+    };
 
     createNew = () => {
         const newSuggestion = new Suggestion(this.state.name, this.state.message);
         console.log(newSuggestion)
         // TODO: post request sturen naar backend en console.log wegdoen
-    }
+    };
 
     submit = (event) => { // Zoals voorgesteld in https://reactjs.org/docs/forms.html
         event.preventDefault();
-        alert("De databank is offline. Ge kunt altijd een brief sturen I guess.")
-        this.createNew()
+        alert("De databank is offline. Ge kunt altijd een brief sturen I guess.");
+        this.createNew();
         this.setState({
             redirect: true
         })
-    }
+    };
 
     componentDidMount() {
         const elems = document.querySelectorAll('.autocomplete');
