@@ -6,6 +6,7 @@ exports.index = function(req, res) {
         wout: index + "/wout",
         jonas: index + "/jonas",
         minecraft: index + "/minecraft",
+        suggestions: index + "/suggestions",
         home: index + "/home"
     });
 };
