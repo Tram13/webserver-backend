@@ -29,12 +29,12 @@ exports.suggestionsList = function (req, res) {
 // Create suggestion on POST.
 exports.createSuggestionPost = [
     // Validate that the voornaam/achternaam field is not empty.
-    body('name').trim().notEmpty().withMessage('Name is empty!')
+    body('author').trim().notEmpty().withMessage('Author is empty!')
         .matches(/^[A-Za-z0-9\s]+$/).withMessage('Only alphanumerical characters are allowed in the name!'),
     body('message', 'Message is required!').trim().isLength({min: 1}),
 
     // Sanitize fields
-    body(['name', 'message']).trim().escape(),
+    body(['author', 'message']).trim().escape(),
 
     // Process request after validation and sanitization.
     (req, res) => {

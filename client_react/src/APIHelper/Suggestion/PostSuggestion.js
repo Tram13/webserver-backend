@@ -2,7 +2,7 @@ import getRequestoptions from "../RequestOptions";
 
 function postSuggestion(suggestion) {
     const data = {
-        name: suggestion.name,
+        author: suggestion.author,
         message: suggestion.message
     };
     const requestOptions = getRequestoptions('POST', data);
