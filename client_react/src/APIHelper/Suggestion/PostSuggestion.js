@@ -1,6 +1,6 @@
-import getRequestoptions from "../requestOptions";
+import getRequestoptions from "../RequestOptions";
 
-function createSuggestion(suggestion) {
+function postSuggestion(suggestion) {
     const data = {
         name: suggestion.name,
         message: suggestion.message
@@ -9,4 +9,4 @@ function createSuggestion(suggestion) {
     return fetch(suggestion.url, requestOptions)
 }
 
-export default createSuggestion;
+export default postSuggestion;

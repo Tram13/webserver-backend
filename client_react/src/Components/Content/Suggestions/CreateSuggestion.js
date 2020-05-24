@@ -2,7 +2,7 @@ import React from "react";
 import M from "materialize-css"
 import RedirectToHomePage from "../../RedirectToHomePage";
 import Suggestion from "../../../DTO/Suggestion"
-import createSuggestion from "../../../APIHelper/Suggestion/CreateSuggestion";
+import postSuggestion from "../../../APIHelper/Suggestion/PostSuggestion";
 
 class CreateSuggestion extends React.Component {
 
@@ -27,7 +27,7 @@ class CreateSuggestion extends React.Component {
 
     createNew = () => {
         const newSuggestion = new Suggestion(this.state.name, this.state.message, this.props.api['suggestions']);
-        createSuggestion(newSuggestion).then(r => this.sendAlert(r, "Adding"))
+        postSuggestion(newSuggestion).then(r => this.sendAlert(r, "Adding"))
     };
 
     submit = (event) => { // Zoals voorgesteld in https://reactjs.org/docs/forms.html
