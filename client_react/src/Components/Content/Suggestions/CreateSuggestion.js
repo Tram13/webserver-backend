@@ -1,13 +1,13 @@
 import React from "react";
 import M from "materialize-css"
-import RedirectToHomePage from "../RedirectToHomePage";
-import Suggestion from "../../DTO/Suggestion"
+import RedirectToHomePage from "../../RedirectToHomePage";
+import Suggestion from "../../../DTO/Suggestion"
+import createSuggestion from "../../../APIHelper/Suggestion/CreateSuggestion";
 
-class Suggestions extends React.Component {
+class CreateSuggestion extends React.Component {
 
     constructor(props) {
         super(props);
-        this.props.updateSelected("suggestions");
         this.state = {redirect: false};
     }
 
@@ -17,10 +17,17 @@ class Suggestions extends React.Component {
         });
     };
 
+    sendAlert = (status, actionString) => {
+        if (status.ok) {
+            alert(actionString + " suggestion succesful!");
+        } else {
+            status.json().then(json => alert(actionString + " suggestion failed!\n" + json.message));
+        }
+    };
+
     createNew = () => {
-        const newSuggestion = new Suggestion(this.state.name, this.state.message);
-        console.log(newSuggestion)
-        // TODO: post request sturen naar backend en console.log wegdoen
+        const newSuggestion = new Suggestion(this.state.name, this.state.message, this.props.api['suggestions']);
+        createSuggestion(newSuggestion).then(r => this.sendAlert(r, "Adding"))
     };
 
     submit = (event) => { // Zoals voorgesteld in https://reactjs.org/docs/forms.html
@@ -78,5 +85,5 @@ class Suggestions extends React.Component {
     }
 }
 
-export default Suggestions
+export default CreateSuggestion
 

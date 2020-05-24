@@ -9,7 +9,7 @@ import Wout from "./Components/Content/Wout";
 import Jonas from "./Components/Content/Jonas";
 import Home from "./Components/Content/Home";
 import Error404 from "./Components/Error404";
-import Suggestions from "./Components/Content/Suggestions";
+import SuggestionsRouter from "./Components/Content/Suggestions/SuggestionsRouter";
 
 //TODO's:
 // pagina maken voor virtual drug dealer
@@ -74,8 +74,8 @@ class App extends React.Component {
                         <Route exact path={"/"}>
                             <Home api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
-                        <Route exact path={"/suggestions"}>
-                            <Suggestions updateSelected={this.updateSelected}/>
+                        <Route path={"/suggestions"}>
+                            <SuggestionsRouter api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
                         <Route>
                             <Error404 updateSelected={this.updateSelected}/>

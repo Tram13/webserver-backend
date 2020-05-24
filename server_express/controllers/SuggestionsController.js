@@ -3,15 +3,6 @@ const {body, validationResult} = require('express-validator');
 const index = "https://api.tram13.me";
 const baseUrl = index + "/suggestions";
 
-// return info on GET
-exports.info = (req, res) => {
-    res.status(200).json({
-        index: index,
-        baseUrl: baseUrl,
-        allSuggestions: baseUrl + "/all"
-    })
-};
-
 // return all suggestions on GET
 exports.suggestionsList = function (req, res) {
     SuggestionModel.find().exec((err, suggestionsList) => {
