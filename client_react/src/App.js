@@ -11,6 +11,14 @@ import Home from "./Components/Content/Home";
 import Error404 from "./Components/Error404";
 import Suggestions from "./Components/Content/Suggestions";
 
+//TODO's:
+// pagina maken voor virtual drug dealer
+// Amber
+// Ardennen
+// Backend van suggestions
+// Constanten opslaan in file
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
