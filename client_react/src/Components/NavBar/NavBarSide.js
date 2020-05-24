@@ -14,6 +14,14 @@ class NavBarSide extends React.Component {
         }
     };
 
+    generateNavBarItems = () => {
+        return this.props.data.map(
+            (item) =>
+                <li className={(this.props.selected === item ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
+                    <Link to={"/" + item}>{item.charAt(0).toUpperCase() + item.slice(1)}</Link></li>
+        )
+    };
+
     render() {
         return (
             <ul className="sidenav" id="mobile-demo">
@@ -23,6 +31,8 @@ class NavBarSide extends React.Component {
                 <li>
                     <div className="divider"/>
                 </li>
+                <li className={(this.props.selected === "amber" ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
+                    <Link to="/amber">Amber</Link></li>
                 <li className={(this.props.selected === "wout" ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
                     <Link to="/wout">Wout</Link></li>
                 <li className={(this.props.selected === "jonas" ? "red lighten-3 active " : "") + "sidenav-close clickable"}>

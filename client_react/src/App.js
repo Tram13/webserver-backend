@@ -9,15 +9,18 @@ import Wout from "./Components/Content/Wout";
 import Jonas from "./Components/Content/Jonas";
 import Home from "./Components/Content/Home";
 import Error404 from "./Components/Error404";
-import SuggestionsRouter from "./Components/Content/Suggestions/SuggestionsRouter";
+import SuggestionsList from "./Components/Content/Suggestions/SuggestionsList";
+import SuggestionForm from "./Components/Content/Suggestions/SuggestionForm";
+import Amber from "./Components/Content/Amber";
 
 //TODO's:
 // pagina maken voor virtual drug dealer
 // Amber
 // Ardennen
-// Backend van suggestions
+// Update/Delete suggestions
 // Constanten opslaan in file
-
+// Error 404 na bezoeken van ongeldige pagina in /suggestions
+// Daarbij hoort ook het fixen van de nested routers
 
 class App extends React.Component {
     constructor(props) {
@@ -71,11 +74,25 @@ class App extends React.Component {
                         <Route exact path="/minecraft">
                             <Minecraft api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
+                        <Route path={"/suggestions"}>
+                            <Route exact path="/suggestions">
+                                <SuggestionsList api={this.state.api} updateSelected={this.updateSelected}/>
+                            </Route>
+                            <Route exact path="/suggestions/create">
+                                <SuggestionForm api={this.state.api} updateSelected={this.updateSelected}/>
+                            </Route>
+                            <Route exact path="/suggestions/*/delete"> {/*TODO: delete*/}
+                                <h1>Delete lol</h1>
+                            </Route>
+                            <Route exact path="/suggestions/*/update"> {/*TODO: update*/}
+                                <SuggestionForm api={this.state.api} updateSelected={this.updateSelected}/>
+                            </Route>
+                        </Route>
+                        <Route exact path="/amber">
+                            <Amber api={this.state.api} updateSelected={this.updateSelected}/>
+                        </Route>
                         <Route exact path={"/"}>
                             <Home api={this.state.api} updateSelected={this.updateSelected}/>
-                        </Route>
-                        <Route path={"/suggestions"}>
-                            <SuggestionsRouter api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
                         <Route>
                             <Error404 updateSelected={this.updateSelected}/>

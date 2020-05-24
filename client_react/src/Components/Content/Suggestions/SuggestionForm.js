@@ -1,14 +1,19 @@
 import React from "react";
 import M from "materialize-css"
-import RedirectToHomePage from "../../RedirectToHomePage";
 import Suggestion from "../../../DTO/Suggestion"
 import postSuggestion from "../../../APIHelper/Suggestion/PostSuggestion";
+import { Redirect } from "react-router-dom";
 
-class CreateSuggestion extends React.Component {
+class SuggestionForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {redirect: false};
+        this.state = {
+            redirect: false,
+            name: undefined,
+            message: undefined
+        };
+        this.props.updateSelected("suggestions");
     }
 
     updateState = (event) => {
@@ -32,7 +37,6 @@ class CreateSuggestion extends React.Component {
 
     submit = (event) => { // Zoals voorgesteld in https://reactjs.org/docs/forms.html
         event.preventDefault();
-        alert("De databank is offline. Ge kunt altijd een brief sturen I guess.");
         this.createNew();
         this.setState({
             redirect: true
@@ -55,7 +59,7 @@ class CreateSuggestion extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <RedirectToHomePage/>;
+            return <Redirect to={"/suggestions"}/>;
         } else return (
             <div className="row padded-left">
                 <h3>Please enter your name and suggestion below.</h3>
@@ -85,5 +89,5 @@ class CreateSuggestion extends React.Component {
     }
 }
 
-export default CreateSuggestion
+export default SuggestionForm
 

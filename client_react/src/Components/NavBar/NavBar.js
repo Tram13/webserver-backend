@@ -12,6 +12,7 @@ class NavBar extends React.Component {
     }
 
     render() {
+        // TODO: maak hier een lijst met de elementen van de navbars, en zet dan lijst om naar html-elementen in de specifieke navbars
         return (
             <div>
                 <NavBarTop selected={this.props.selected}/>
