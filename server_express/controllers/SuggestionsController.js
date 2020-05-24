@@ -40,7 +40,6 @@ exports.createSuggestionPost = [
     (req, res) => {
         // Extract the validation errors from a request.
         const errors = validationResult(req);
-
         // Create a gebruiker object with escaped and trimmed data.
         const newSuggestion = new SuggestionModel(
             {
@@ -58,7 +57,7 @@ exports.createSuggestionPost = [
                 if (err) {
                     res.status(500).json({suggestion: undefined, error: err})
                 } else {
-                    // Suggestion saved. Redirect to gebruiker detail page.
+                    // Suggestion saved.
                     //TODO: in de json, return ook de url van de nieuwe suggestie?
                     res.status(200).json({suggestion: newSuggestion});
                 }
