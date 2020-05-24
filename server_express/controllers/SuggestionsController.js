@@ -8,7 +8,7 @@ exports.info = (req, res) => {
     res.status(200).json({
         index: index,
         baseUrl: baseUrl,
-        allSuggestions: "/all"
+        allSuggestions: baseUrl + "/all"
     })
 };
 
