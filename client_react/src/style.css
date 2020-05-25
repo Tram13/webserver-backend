@@ -3,6 +3,11 @@
         padding-left: 30px
     }
 }
+@media only screen and (max-width: 993px) {
+    .padded-right {
+        padding-right: 30px !important;
+    }
+}
 .column {
     float: left;
     width: 50%;

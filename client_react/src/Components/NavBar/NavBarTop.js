@@ -18,14 +18,15 @@ class NavBarTop extends React.Component {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    <Link to="" onClick={this.rickroll} className="nav-content padded-left">Tram13</Link>
+                    <Link to="" onClick={this.rickroll} className="hide-on-med-and-down nav-content padded-left">Tram13</Link>
+                    <Link to="" onClick={this.rickroll} className="hide-on-large-only nav-content right padded-right">Tram13</Link>
                     <a onClick={(e) => e.preventDefault()} data-target="mobile-demo" className="sidenav-trigger"
                        href={"#!"}>
-                        <i className="hide-on-med-and-up material-icons">
+                        <i className="hide-on-small-and-up material-icons">
                             list
                         </i>
                     </a>
-                    <ul className="right hide-on-small-and-down">
+                    <ul className="right hide-on-med-and-down">
                         {this.props.navBarItems}
                     </ul>
                 </div>

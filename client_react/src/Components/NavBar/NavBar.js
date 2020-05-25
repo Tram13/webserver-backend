@@ -13,8 +13,10 @@ class NavBar extends React.Component {
             "wout",
             "jonas",
             "minecraft",
-            "suggestions"
-        ];
+            "suggestions",
+            "Ardennen",
+            "Virtual Drug Dealer"
+        ].sort();
     }
 
     componentDidMount() {
