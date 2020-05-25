@@ -36,13 +36,21 @@ class SuggestionsList extends React.Component {
                     <td key={suggestion._id + suggestion.message}>{suggestion.message}</td>
                     <td key={suggestion._id + "Update"}>
                         <Link to={"/suggestions/" + suggestion._id + "/update"}
-                              className="waves-effect waves-light btn-small red lighten-2 right-align"><i
-                            className="material-icons left">edit</i>Update</Link>
+                              className="waves-effect waves-light btn-small red lighten-2 right-align">
+                            <i className="material-icons left">
+                                edit
+                            </i>
+                            Update
+                        </Link>
                     </td>
                     <td key={suggestion._id + "Delete"}>
                         <Link to={"/suggestions/" + suggestion._id + "/delete"}
-                              className="waves-effect waves-light btn-small red right-align"><i
-                            className="material-icons left">delete_forever</i>Delete</Link>
+                              className="waves-effect waves-light btn-small red right-align">
+                            <i className="material-icons left">
+                                delete_forever
+                            </i>
+                            Delete
+                        </Link>
                     </td>
                 </tr>
         )
