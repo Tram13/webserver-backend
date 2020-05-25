@@ -10,12 +10,10 @@ class SuggestionsList extends React.Component {
         super(props);
         this.state = {data: {}, fetching: true};
         this.props.updateSelected("suggestions");
-    }
+    };
 
-    componentDidMount() {
-        const url = this.props.api["suggestions"];
-        fetch(url).then(
-            response => (response.json()
+    getSuggestions = () => {
+        fetch(this.props.api["suggestions"]).then(response => (response.json()
                     .then((r) => {
                             this.setState(
                                 {
@@ -26,8 +24,12 @@ class SuggestionsList extends React.Component {
                         }
                     )
             )
-        );
-    }
+        )
+    };
+
+    componentDidMount() {
+        this.getSuggestions()
+    };
 
     dataToTableRows = () => {
         return this.state.data.map(
@@ -45,7 +47,8 @@ class SuggestionsList extends React.Component {
                         </Link>
                     </td>
                     <td key={suggestion._id + "Delete"}>
-                        <button data-target={suggestion._id} className="btn-small modal-trigger waves-effect waves-light red right-align">
+                        <button data-target={suggestion._id}
+                                className="btn-small modal-trigger waves-effect waves-light red right-align">
                             Delete
                             <i className="material-icons left">
                                 delete_forever
@@ -53,7 +56,7 @@ class SuggestionsList extends React.Component {
                         </button>
                     </td>
                     <td key={suggestion._id + "Modal"}>
-                        <ModalDelete id={suggestion._id} url={this.props.api["suggestions"] + "/" + suggestion._id}/>
+                        <ModalDelete after={this.getSuggestions} id={suggestion._id} url={this.props.api["suggestions"] + "/" + suggestion._id}/>
                     </td>
                 </tr>
         )

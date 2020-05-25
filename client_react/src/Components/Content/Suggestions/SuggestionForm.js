@@ -2,7 +2,7 @@ import React from "react";
 import M from "materialize-css"
 import Suggestion from "../../../DTO/Suggestion"
 import postSuggestion from "../../../APIHelper/Suggestion/PostSuggestion";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class SuggestionForm extends React.Component {
 
@@ -24,10 +24,13 @@ class SuggestionForm extends React.Component {
 
     sendAlert = (status, actionString) => {
         if (status.ok) {
-            alert(actionString + " suggestion succesful!");
+            M.toast({html: actionString + " suggestion succesful!"});
         } else {
-            status.json().then(json => alert(actionString + " suggestion failed!\n" + json.message));
+            M.toast({html: actionString + " suggestion failed!"});
         }
+        this.setState({
+            redirect: true
+        })
     };
 
     createNew = () => {
@@ -38,9 +41,6 @@ class SuggestionForm extends React.Component {
     submit = (event) => { // Zoals voorgesteld in https://reactjs.org/docs/forms.html
         event.preventDefault();
         this.createNew();
-        this.setState({
-            redirect: true
-        })
     };
 
     componentDidMount() {
@@ -83,6 +83,8 @@ class SuggestionForm extends React.Component {
                     <button className="btn waves-effect waves-light" type="submit">Submit
                         <i className="material-icons right">send</i>
                     </button>
+                    {/*TODO: de cancel knop moet "back" gaan, niet naar het overzicht*/}
+                    <Link to={"/suggestions"} className="waves-effect waves-teal btn-flat">Cancel</Link>
                 </form>
             </div>
         )

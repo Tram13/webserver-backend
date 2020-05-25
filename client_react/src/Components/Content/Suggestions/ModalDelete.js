@@ -4,10 +4,6 @@ import deleteSuggestion from "../../../APIHelper/Suggestion/DeleteSuggestion";
 
 class ModalDelete extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         const elems = document.querySelectorAll('.modal');
         M.Modal.init(elems, {});
@@ -17,8 +13,9 @@ class ModalDelete extends React.Component {
         if (status.ok) {
             M.toast({html: actionString + " suggestion succesful!"});
         } else {
-            status.json().then(json => M.toast({html: actionString + " suggestion failed!\n" + json.message}));
+            M.toast({html: actionString + " suggestion failed!"});
         }
+        this.props.after();
     };
 
     deleteSuggestion = () => {
