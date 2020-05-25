@@ -3,7 +3,7 @@ const SuggestionsController = require('../controllers/SuggestionsController');
 const router = express.Router();
 
 // suggestions/:suggestionID/delete
-router.delete('/:suggestionID/delete', SuggestionsController.deleteSuggestionDelete);
+router.delete('/:suggestionID', SuggestionsController.deleteSuggestionDelete);
 
 // suggestions/:suggestionID
 router.patch('/:suggestionID', SuggestionsController.suggestionsList);

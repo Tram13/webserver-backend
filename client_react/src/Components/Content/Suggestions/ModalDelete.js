@@ -15,9 +15,9 @@ class ModalDelete extends React.Component {
 
     sendAlert = (status, actionString) => {
         if (status.ok) {
-            alert(actionString + " suggestion succesful!");
+            M.toast({html: actionString + " suggestion succesful!"});
         } else {
-            status.json().then(json => alert(actionString + " suggestion failed!\n" + json.message));
+            status.json().then(json => M.toast({html: actionString + " suggestion failed!\n" + json.message}));
         }
     };
 
