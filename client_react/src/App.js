@@ -12,6 +12,7 @@ import Error404 from "./Components/Error404";
 import SuggestionsList from "./Components/Content/Suggestions/SuggestionsList";
 import SuggestionForm from "./Components/Content/Suggestions/SuggestionForm";
 import Amber from "./Components/Content/Amber";
+import DrugDealer from "./Components/Content/DrugDealer/DrugDealer";
 
 //TODO's:
 // pagina maken voor virtual drug dealer
@@ -74,7 +75,10 @@ class App extends React.Component {
                         <Route exact path="/minecraft">
                             <Minecraft api={this.state.api} updateSelected={this.updateSelected}/>
                         </Route>
-                        <Route path={"/suggestions"}>
+                        <Route path="/drugdealer">
+                            <DrugDealer api={this.state.api} updateSelected={this.updateSelected}/>
+                        </Route>
+                        <Route path="/suggestions">
                             <Route exact path="/suggestions">
                                 <SuggestionsList api={this.state.api} updateSelected={this.updateSelected}/>
                             </Route>
