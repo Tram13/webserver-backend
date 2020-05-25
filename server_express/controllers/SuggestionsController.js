@@ -81,3 +81,21 @@ exports.deleteSuggestionDelete = function (req, res) {
         }
     });
 };
+
+exports.getSuggestionByID = function (req, res) {
+    SuggestionModel.findById(req.params.suggestionID).exec(function (err, suggestion) {
+        if (err) {
+            return res.status(500).json({
+                index: index,
+                baseUrl: baseUrl,
+                error: err
+            })
+        } else {
+            res.status(200).json({
+                index: index,
+                baseUrl: baseUrl,
+                suggestion: suggestion
+            })
+        }
+    });
+};
