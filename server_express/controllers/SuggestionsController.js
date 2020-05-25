@@ -83,7 +83,6 @@ exports.deleteSuggestionDelete = function (req, res) {
 };
 
 exports.getSuggestionByID = function (req, res) {
-    console.log(req.json.stringify());
     SuggestionModel.findById(req.params.suggestionID).exec(function (err, suggestion) {
         if (err) {
             return res.status(500).json({

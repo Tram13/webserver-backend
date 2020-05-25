@@ -10,6 +10,8 @@ const helmet = require('helmet');
 const compression = require('compression');
 const mongoose = require('mongoose');
 
+//TODO: ook hier werkt de update/delete van suggestions volgens mij nog niet
+
 // Creating express instance
 const app = express();
 
