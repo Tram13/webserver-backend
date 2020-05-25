@@ -68,11 +68,7 @@ app.use(function (err, req, res) {
 
     // render the error page
     res.status(err.status || 500);
-    res.format({
-        'application/json': function () {
-            res.status(err.status).json({error: 'Not found'});
-        }
-    });
+    res.status(err.status).json({error: 'Not found'});
 });
 
 function isWhitelisted(req) {
