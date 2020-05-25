@@ -14,33 +14,16 @@ class NavBarSide extends React.Component {
         }
     };
 
-    generateNavBarItems = () => {
-        return this.props.data.map(
-            (item) =>
-                <li className={(this.props.selected === item ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
-                    <Link to={"/" + item}>{item.charAt(0).toUpperCase() + item.slice(1)}</Link></li>
-        )
-    };
-
     render() {
         return (
             <ul className="sidenav" id="mobile-demo">
-                <li className={(this.props.selected === "" ? "active " : "") + "sidenav-close clickable"}>
+                <li className={(this.props.selected === "" ? "active " : "") + "sidenav-close"}>
                     <Link to="" onClick={this.rickroll} className="nav-content padded-left">Home</Link>
                 </li>
                 <li>
                     <div className="divider"/>
                 </li>
-                <li className={(this.props.selected === "amber" ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
-                    <Link to="/amber">Amber</Link></li>
-                <li className={(this.props.selected === "wout" ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
-                    <Link to="/wout">Wout</Link></li>
-                <li className={(this.props.selected === "jonas" ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
-                    <Link to="/jonas">Jonas</Link></li>
-                <li className={(this.props.selected === "minecraft" ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
-                    <Link to="/minecraft">Minecraft</Link></li>
-                <li className={(this.props.selected === "suggestions" ? "red lighten-3 active " : "") + "sidenav-close clickable"}>
-                    <Link to="/suggestions">Suggestions</Link></li>
+                {this.props.navBarItems}
             </ul>
         )
     }

@@ -14,14 +14,6 @@ class NavBarTop extends React.Component {
         }
     };
 
-    generateNavBarItems = () => {
-        return this.props.data.map(
-            (item) =>
-                <li className={(this.props.selected === item ? "red lighten-3 active " : "") + "sidenav-close"}>
-                    <Link to={"/" + item}>{item.charAt(0).toUpperCase() + item.slice(1)}</Link></li>
-        )
-    };
-
     render() {
         return (
             <nav>
@@ -34,16 +26,7 @@ class NavBarTop extends React.Component {
                         </i>
                     </a>
                     <ul className="right hide-on-small-and-down">
-                        <li className={(this.props.selected === "amber" ? "red lighten-3 active" : "") + "sidenav-close"}>
-                            <Link to="/amber">Amber</Link></li>
-                        <li className={(this.props.selected === "wout" ? "red lighten-3 active" : "") + "sidenav-close"}>
-                            <Link to="/wout">Wout</Link></li>
-                        <li className={(this.props.selected === "jonas" ? "red lighten-3 active " : "") + "sidenav-close"}>
-                            <Link to="/jonas">Jonas</Link></li>
-                        <li className={(this.props.selected === "minecraft" ? "red lighten-3 active " : "") + "sidenav-close"}>
-                            <Link to="/minecraft">Minecraft</Link></li>
-                        <li className={(this.props.selected === "suggestions" ? "red lighten-3 active " : "") + "sidenav-close"}>
-                            <Link to="/suggestions">Suggestions</Link></li>
+                        {this.props.navBarItems}
                     </ul>
                 </div>
             </nav>

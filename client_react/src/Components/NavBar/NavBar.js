@@ -2,8 +2,20 @@ import React from "react";
 import M from "materialize-css"
 import NavBarSide from "./NavBarSide";
 import NavBarTop from "./NavBarTop";
+import {Link} from "react-router-dom";
 
 class NavBar extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.data = [
+            "amber",
+            "wout",
+            "jonas",
+            "minecraft",
+            "suggestions"
+        ];
+    }
 
     componentDidMount() {
         M.AutoInit();
@@ -11,12 +23,21 @@ class NavBar extends React.Component {
         M.Sidenav.init(elems, {});
     }
 
+    generateNavBarItems = () => {
+        return this.data.map(
+            (item) =>
+                <li key={item}
+                    className={(this.props.selected === item ? "red lighten-3 active " : "") + "sidenav-close"}>
+                    <Link to={"/" + item}>{item.charAt(0).toUpperCase() + item.slice(1)}</Link></li>
+        )
+    };
+
     render() {
-        // TODO: maak hier een lijst met de elementen van de navbars, en zet dan lijst om naar html-elementen in de specifieke navbars
+        this.navBarItems = this.generateNavBarItems();
         return (
             <div>
-                <NavBarTop selected={this.props.selected}/>
-                <NavBarSide selected={this.props.selected}/>
+                <NavBarTop selected={this.props.selected} navBarItems={this.navBarItems}/>
+                <NavBarSide selected={this.props.selected} navBarItems={this.navBarItems}/>
             </div>
         )
     }
