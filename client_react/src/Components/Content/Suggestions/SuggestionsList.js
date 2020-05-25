@@ -1,6 +1,7 @@
 import React from "react";
 import LoadingAnimation from "../../LoadingAnimation";
 import {Link} from "react-router-dom";
+import ModalDelete from "./ModalDelete";
 
 class SuggestionsList extends React.Component {
     _id;
@@ -44,13 +45,15 @@ class SuggestionsList extends React.Component {
                         </Link>
                     </td>
                     <td key={suggestion._id + "Delete"}>
-                        <Link to={"/suggestions/" + suggestion._id + "/delete"}
-                              className="waves-effect waves-light btn-small red right-align">
+                        <button data-target={suggestion._id} className="btn-small modal-trigger waves-effect waves-light red right-align">
+                            Delete
                             <i className="material-icons left">
                                 delete_forever
                             </i>
-                            Delete
-                        </Link>
+                        </button>
+                    </td>
+                    <td key={suggestion._id + "Modal"}>
+                        <ModalDelete id={suggestion._id} url={this.props.api["suggestions"] + "/" + suggestion._id}/>
                     </td>
                 </tr>
         )
