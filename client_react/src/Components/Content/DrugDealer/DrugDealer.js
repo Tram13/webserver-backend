@@ -8,7 +8,7 @@ class DrugDealer extends React.Component {
     constructor(props) {
         super(props);
         this.props.updateSelected("drugdealer");
-        this.state = {marketplace: new Marketplace()};
+        this.marketplace = new Marketplace();
         this.rg = new RandomGenerator();
         this.eventGenerator = new EventGenerator();
         this.cash = 2500;
@@ -17,19 +17,31 @@ class DrugDealer extends React.Component {
 
     nextDay = () => {
         if (this.daysleft > 0) {
-            this.state.marketplace.updatePrices();
+            this.marketplace.updatePrices();
             this.eventGenerator.applyRandomEvent();
             this.daysleft--;
+            // Because the state itself doesn't get updated
             this.forceUpdate();
         }
     };
 
+    onClickBuy = (event) => {
+        const drug = this.marketplace.findDrugByName(event.target.name)
+        drug.buy(1);
+        this.forceUpdate();
+    };
+
     drugsToTableRows = () => {
-        return this.state.marketplace.drugs.map(
+        return this.marketplace.drugs.map(
             (drug) =>
                 <tr key={drug.name}>
                     <td className="padded-left" key={drug.name + "Name"}>{drug.name}</td>
                     <td key={drug.name + "Price"}>{"€" + drug.price}</td>
+                    <td key={drug.name + "Buy"}>
+                        <a name={drug.name} className="waves-effect waves-light btn" onClick={this.onClickBuy}><i
+                            className="material-icons right">attach_money</i>Buy</a>
+                    </td>
+                    <td key={drug.name + "Owned"}>{drug.owned}</td>
                 </tr>
         );
     };
@@ -40,8 +52,10 @@ class DrugDealer extends React.Component {
                 <table id="gameTable" className="responsive-table striped highlight centered">
                     <thead>
                     <tr>
-                        <th key={"drugName"} className="padded-left">Drug name</th>
-                        <th key={"drugPrice"}>Price</th>
+                        <th key="drugName" className="padded-left">Drug name</th>
+                        <th key="drugPrice">Price</th>
+                        <th key="drugBuy">Buy</th>
+                        <th key="drugOwned">Your possesion</th>
                     </tr>
                     </thead>
                     <tbody>
