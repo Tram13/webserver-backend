@@ -26,9 +26,8 @@ class DrugDealer extends React.Component {
     };
 
     onClickBuy = (event) => {
-        const drug = this.marketplace.findDrugByName(event.target.name)
-        drug.buy(1);
-        this.forceUpdate();
+        event.preventDefault();
+        this.marketplace.findDrugByName(event.target.id).buy(1);
     };
 
     drugsToTableRows = () => {
@@ -38,8 +37,10 @@ class DrugDealer extends React.Component {
                     <td className="padded-left" key={drug.name + "Name"}>{drug.name}</td>
                     <td key={drug.name + "Price"}>{"€" + drug.price}</td>
                     <td key={drug.name + "Buy"}>
-                        <a name={drug.name} className="waves-effect waves-light btn" onClick={this.onClickBuy}><i
-                            className="material-icons right">attach_money</i>Buy</a>
+                        <a href={"#!"} id={drug.name} className="waves-effect waves-light btn" onClick={this.onClickBuy}>
+                            <i id={drug.name} className="material-icons right">attach_money</i>
+                            Buy
+                        </a>
                     </td>
                     <td key={drug.name + "Owned"}>{drug.owned}</td>
                 </tr>
@@ -49,20 +50,20 @@ class DrugDealer extends React.Component {
     render() {
         return (
             <div>
-                <table id="gameTable" className="responsive-table striped highlight centered">
+                <table id="gameTable" className="striped highlight centered">
                     <thead>
                     <tr>
                         <th key="drugName" className="padded-left">Drug name</th>
                         <th key="drugPrice">Price</th>
                         <th key="drugBuy">Buy</th>
-                        <th key="drugOwned">Your possesion</th>
+                        <th key="drugOwned">Owned</th>
                     </tr>
                     </thead>
                     <tbody>
                     {this.drugsToTableRows()}
                     </tbody>
                 </table>
-                <a className="waves-effect waves-light btn" onClick={this.nextDay}>button</a>
+                <a href={"#!"} className="waves-effect waves-light btn" onClick={this.nextDay}>button</a>
             </div>
         )
     }
