@@ -15,10 +15,23 @@ const mongoose = require('mongoose');
 // Creating express instance
 const app = express();
 
+// Set up a whitelist and check against it:
+const whitelist = ['https://www.tram13.me'];
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+};
+
+
 // Setting up middleware
 app.use(compression());
 app.use(helmet());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(logger('dev', {}));
 app.use(cookieParser());
 app.use(express.json());
