@@ -16,7 +16,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // Set up a whitelist and check against it:
-const whitelist = ['https://api.tram13.me'];
+/*const whitelist = ['https://api.tram13.me'];
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
@@ -26,12 +26,12 @@ const corsOptions = {
         }
     }
 };
-
+*/
 
 // Setting up middleware
 app.use(compression());
 app.use(helmet());
-app.use(cors(corsOptions));
+app.use(cors({}));
 app.use(logger('dev', {}));
 app.use(cookieParser());
 app.use(express.json());
