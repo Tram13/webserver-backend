@@ -28,7 +28,7 @@ exports.suggestionsList = function (req, res) {
 
 // Create suggestion on POST.
 exports.createSuggestionPost = [
-    // Validate that the voornaam/achternaam field is not empty.
+    // Validate that the author/message field is not empty.
     body('author').trim().notEmpty().withMessage('Author is empty!')
         .matches(/^[A-Za-z0-9\s]+$/).withMessage('Only alphanumerical characters are allowed in the name!'),
     body('message', 'Message is required!').trim().isLength({min: 1}),
@@ -49,7 +49,7 @@ exports.createSuggestionPost = [
         );
         if (!errors.isEmpty()) {
             // There are errors. Return 422 Unprocessable Entity
-            res.status(422).json({gebruiker: newSuggestion, errors: errors.array()});
+            res.status(422).json({suggestion: newSuggestion, errors: errors.array()});
         } else {
             // Data from form is valid.
             // Save the suggestion in the database
@@ -99,3 +99,42 @@ exports.getSuggestionByID = function (req, res) {
         }
     });
 };
+
+// Update suggestion on PATCH
+exports.updateSuggestionPatch =  [
+
+    // Validate that the author/message field is not empty.
+    body('author').trim().notEmpty().withMessage('Author is empty!')
+        .matches(/^[A-Za-z\s]+$/).withMessage('Only alphanumerical characters are allowed in the name!'),
+    body('email', 'Message is required!').trim().isLength({min: 1}),
+
+    // Sanitize fields
+    body(['author', 'message']).trim().escape(),
+
+    // Process request after validation and sanitization.
+    (req, res) => {
+        // Extract the validation errors from a request.
+        const errors = validationResult(req);
+        // Create a suggestion object with escaped and trimmed data.
+        const updatedSuggestion = new SuggestionModel(
+            {
+                author: req.body.author,
+                message: req.body.message
+            }
+        );
+        if (!errors.isEmpty()) {
+            // There are errors. Return 422 Unprocessable Entity
+            res.status(422).json({suggestion: updatedSuggestion, errors: errors.array()});
+        } else {
+            // Data from form is valid.
+            // Update the suggestion in the database
+            SuggestionModel.findByIdAndUpdate(req.params.suggestionID, updatedSuggestion).exec((err) => {
+                if (err) {
+                    res.status(500).json({suggestion: undefined, error: err});
+                } else {
+                    res.status(200).json({suggestion: updatedSuggestion});
+                }
+            });
+        }
+    }
+];

@@ -6,7 +6,7 @@ const router = express.Router();
 router.delete('/:suggestionID', SuggestionsController.deleteSuggestionDelete);
 
 // suggestions/:suggestionID
-router.patch('/:suggestionID', SuggestionsController.suggestionsList);
+router.patch('/:suggestionID', SuggestionsController.updateSuggestionPatch);
 
 // suggestions
 router.post('/', SuggestionsController.createSuggestionPost);
