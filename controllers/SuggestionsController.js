@@ -106,7 +106,7 @@ exports.updateSuggestionPatch =  [
     // Validate that the author/message field is not empty.
     body('author').trim().notEmpty().withMessage('Author is empty!')
         .matches(/^[A-Za-z\s]+$/).withMessage('Only alphanumerical characters are allowed in the name!'),
-    body('email', 'Message is required!').trim().isLength({min: 1}),
+    body('message', 'Message is required!').trim().isLength({min: 1}),
 
     // Sanitize fields
     body(['author', 'message']).trim().escape(),
