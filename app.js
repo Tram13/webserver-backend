@@ -67,7 +67,7 @@ app.use('/static_images', (req, res, next) => {
 
 // Enable static serving
 app.use('/static_images', express.static(path.join(__dirname, 'public', 'images')));
-app.use('/scrips', express.static(path.join(__dirname, 'node_modules', 'instant.page')));
+app.use('/scripts', express.static(path.join(__dirname, 'node_modules', 'instant.page')));
 
 // Setting Main Router
 app.use('/', indexRouter);
