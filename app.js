@@ -56,7 +56,7 @@ app.use((req, res, next) => {
         next();
 });
 
-// Whitelist of static folder
+// Whitelist of static_images folder
 app.use('/static_images', (req, res, next) => {
     if (!isWhitelisted(req)) {
         return res.status(403).end('403 Forbidden')
@@ -67,6 +67,7 @@ app.use('/static_images', (req, res, next) => {
 
 // Enable static serving
 app.use('/static_images', express.static(path.join(__dirname, 'public', 'images')));
+app.use('/scrips', express.static(path.join(__dirname, 'node_modules', 'instant.page')));
 
 // Setting Main Router
 app.use('/', indexRouter);
