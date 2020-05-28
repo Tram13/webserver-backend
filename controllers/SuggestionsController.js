@@ -101,7 +101,7 @@ exports.getSuggestionByID = function (req, res) {
 };
 
 // Update suggestion on PATCH
-exports.updateSuggestionPatch =  [
+exports.updateSuggestionPatch = [
 
     // Validate that the author/message field is not empty.
     body('author').trim().notEmpty().withMessage('Author is empty!')
@@ -116,14 +116,12 @@ exports.updateSuggestionPatch =  [
         // Extract the validation errors from a request.
         const errors = validationResult(req);
         // Create a suggestion object with escaped and trimmed data.
-        const updatedSuggestion = new SuggestionModel(
-            {
-                author: req.body.author,
-                message: req.body.message
-            }
-        );
+        const updatedSuggestion = {
+            author: req.body.author,
+            message: req.body.message
+        };
         if (!errors.isEmpty()) {
-            // There are errors. Return 422 Unprocessable Entity
+            // There are errors. Return HTTP 422 Unprocessable Entity
             res.status(422).json({suggestion: updatedSuggestion, errors: errors.array()});
         } else {
             // Data from form is valid.
