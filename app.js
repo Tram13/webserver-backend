@@ -11,7 +11,9 @@ const compression = require('compression');
 const mongoose = require('mongoose');
 
 //TODO: ook hier werkt de update nog niet
-// TODO: Uitzoeken hoe CORS werkt
+// TODO: Uitzoeken hoe CORS werkt: staat dit correct in NGINX, kan het mooier?
+// TODO: Mooie ERROR 404 voor API
+// TODO: Hiding de echte folder structuur voor static serves
 
 // Creating express instance
 const app = express();
