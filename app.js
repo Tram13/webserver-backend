@@ -8,7 +8,7 @@ const indexRouter = require('./routes');
 const cors = require("cors");
 const helmet = require('helmet');
 const compression = require('compression');
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 //TODO: ook hier werkt de update nog niet
 // TODO: Uitzoeken hoe CORS werkt: staat dit correct in NGINX, kan het mooier?
@@ -41,13 +41,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 //Set up default mongoose connection
-/*const mongoDB = 'mongodb://127.0.0.1/express_databank';
+const mongoDB = 'mongodb://127.0.0.1/express_databank';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useFindAndModify', false);*/
 
 //Get the default connection and
 //Bind connection to error event (to get notification of connection errors)
-//mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Redirect all requests with trailing '/' to one without
 app.use((req, res, next) => {
