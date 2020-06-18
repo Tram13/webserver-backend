@@ -6,6 +6,6 @@ const router = express.Router();
 router.get('/', imageOfDayController.imagesList);
 
 // r/earthporn
-router.get('/earthporn', imageOfDayController.earthPorn);
+router.get('/earthPorn', imageOfDayController.earthPorn);
 
 module.exports = router;

@@ -15,9 +15,11 @@ function getTopImageFromSubreddit(res, subreddit, mode = ModesEnum.Image) {
                     res.redirect(imageUrl);
                 }
                 else if (mode === ModesEnum.Json) {
+                    const baseUrl = index + "/imageOfDay/";
                     res.status(200).json({
                         index: index,
-                        earthPorn: imageUrl
+                        baseUrl: baseUrl,
+                        earthPorn: baseUrl + "earthPorn"
                     });
                 }
             }).catch(err => {
