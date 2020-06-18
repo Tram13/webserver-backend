@@ -13,9 +13,10 @@
     "express": "~4.16.1",
     "helmet": "^3.22.0",
     "http-errors": "^1.7.3",
+    "instant.page": "^5.1.0",
     "mongoose": "^5.9.16",
     "morgan": "~1.9.1",
-    "instant.page": "^5.1.0"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "express-validator": "^6.5.0"
