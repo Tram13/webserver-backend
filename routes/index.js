@@ -6,6 +6,7 @@ const jonasRouter = require('./jonas');
 const homeRouter = require('./home');
 const minecraftRouter = require('./minecraft');
 const suggestionsRouter = require('./suggestions');
+const imageOfDayRouter = require('./imageOfDay')
 
 // Wout-router
 router.use('/wout/', woutRouter);
@@ -21,6 +22,9 @@ router.use('/minecraft/', minecraftRouter);
 
 // Suggestions-router
 router.use('/suggestions/', suggestionsRouter);
+
+// ImageOfDay-router
+router.use('/imageOfDay/', imageOfDayRouter);
 
 // Index Page
 router.get('/', indexController.index);

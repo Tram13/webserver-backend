@@ -11,7 +11,9 @@ const compression = require('compression');
 const mongoose = require('mongoose');
 
 //TODO: ook hier werkt de update nog niet
-// TODO: Uitzoeken hoe CORS werkt
+// TODO: Uitzoeken hoe CORS werkt: staat dit correct in NGINX, kan het mooier?
+// TODO: Mooie ERROR 404 voor API
+// TODO: Hiding de echte folder structuur voor static serves
 
 // Creating express instance
 const app = express();
@@ -66,8 +68,8 @@ app.use('/static_images', (req, res, next) => {
 });
 
 // Enable static serving
-app.use('/static_images', express.static(path.join(__dirname, 'public', 'images')));
-app.use('/scripts', express.static(path.join(__dirname, 'node_modules', 'instant.page')));
+//app.use('/static_images', express.static(path.join(__dirname, 'public', 'images')));
+//app.use('/scripts', express.static(path.join(__dirname, 'node_modules', 'instant.page')));
 
 // Setting Main Router
 app.use('/', indexRouter);

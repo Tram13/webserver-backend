@@ -1,6 +1,6 @@
 exports.imagesList = (req, res) => {
     const index = "https://api.tram13.me";
-    const baseUrl = index + "/static_images/jonas/";
+    const baseUrl = index + "/public/images/jonas/";
     res.status(200).json({
         index: index,
         baseUrl : baseUrl,
