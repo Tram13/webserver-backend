@@ -96,7 +96,8 @@ function isWhitelisted(req) {
     const whitelistedHome    = "home/friendship.png";
     const whitelistedWout    = "wout/wout_kop1.jpg|wout/wout_kop2.jpg|wout/wout_kop3.png";
     const whitelistedJonas   = "jonas/jonas_kop1.png|jonas/jonas_kop2.png";
-    const whitelists = [whitelistedDefault, whitelistedHome, whitelistedWout, whitelistedJonas];
+    const whitelistedMira    = "mira/mira_tekening.png";
+    const whitelists = [whitelistedDefault, whitelistedHome, whitelistedWout, whitelistedJonas, whitelistedMira];
     let isWhitelisted = false;
     for (let whitelist of whitelists) {
         const regex = new RegExp("^\/(" + whitelist + ")$");
