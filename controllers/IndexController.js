@@ -8,6 +8,7 @@ exports.index = function(req, res) {
         minecraft: index + "/minecraft",
         suggestions: index + "/suggestions",
         home: index + "/home",
-        imageOfDay: index + "/imageOfDay"
+        imageOfDay: index + "/imageOfDay",
+        mira: index + "/mira"
     });
 };
