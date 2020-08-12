@@ -8,6 +8,7 @@ const minecraftRouter = require('./minecraft');
 const suggestionsRouter = require('./suggestions');
 const imageOfDayRouter = require('./imageOfDay');
 const miraRouter = require('./mira');
+const arnoudRouter = require('./arnoud');
 
 // Wout-router
 router.use('/wout/', woutRouter);
@@ -17,6 +18,9 @@ router.use('/jonas/', jonasRouter);
 
 // Mira-router
 router.use('/mira/', miraRouter);
+
+// Arnoud-router
+router.use('/arnoud/', arnoudRouter);
 
 // Home-router
 router.use('/home/', homeRouter);

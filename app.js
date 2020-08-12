@@ -41,7 +41,7 @@ app.use(express.urlencoded({extended: false}));
 
 //Set up default mongoose connection
 const mongoDB = 'mongodb://127.0.0.1/express_databank';
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useFindAndModify', false);
 
 //Get the default connection and
@@ -93,11 +93,12 @@ function isWhitelisted(req) {
     // Will only allow files in /public/images/ ** name in whitelistedImages **
     // Split with "|"
     const whitelistedDefault = "favicon.ico"
-    const whitelistedHome    = "home/friendship.png";
-    const whitelistedWout    = "wout/wout_kop1.jpg|wout/wout_kop2.jpg|wout/wout_kop3.png";
-    const whitelistedJonas   = "jonas/jonas_kop1.png|jonas/jonas_kop2.png";
-    const whitelistedMira    = "mira/mira_tekening.png";
-    const whitelists = [whitelistedDefault, whitelistedHome, whitelistedWout, whitelistedJonas, whitelistedMira];
+    const whitelistedHome = "home/friendship.png";
+    const whitelistedWout = "wout/wout_kop1.jpg|wout/wout_kop2.jpg|wout/wout_kop3.png";
+    const whitelistedJonas = "jonas/jonas_kop1.png|jonas/jonas_kop2.png";
+    const whitelistedMira = "mira/mira_tekening.png|mira/mira_choke.jpg";
+    const whitelistedArnoud = "arnoud/arnoud_kijk.png"
+    const whitelists = [whitelistedDefault, whitelistedHome, whitelistedWout, whitelistedJonas, whitelistedMira, whitelistedArnoud];
     let isWhitelisted = false;
     for (let whitelist of whitelists) {
         const regex = new RegExp("^\/(" + whitelist + ")$");
