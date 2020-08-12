@@ -4,6 +4,7 @@ exports.imagesList = (req, res) => {
     res.status(200).json({
         index: index,
         baseUrl : baseUrl,
-        tekening: baseUrl + "mira_tekening.png"
+        mira_tekening: baseUrl + "mira_tekening.png",
+        mira_choke: baseUrl + "mira_choke.jpg"
     });
 };
