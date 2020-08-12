@@ -9,6 +9,7 @@ exports.index = function(req, res) {
         suggestions: index + "/suggestions",
         home: index + "/home",
         imageOfDay: index + "/imageOfDay",
-        mira: index + "/mira"
+        mira: index + "/mira",
+        arnoud: index + "/arnoud"
     });
 };
