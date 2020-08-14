@@ -4,6 +4,6 @@ exports.imagesList = (req, res) => {
     res.status(200).json({
         index: index,
         baseUrl : baseUrl,
-        mira_tekening: baseUrl + "amber_brugge.jpg"
+        amber_brugge: baseUrl + "amber_brugge.jpg"
     });
 };
