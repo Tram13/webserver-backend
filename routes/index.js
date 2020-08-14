@@ -9,6 +9,7 @@ const suggestionsRouter = require('./suggestions');
 const imageOfDayRouter = require('./imageOfDay');
 const miraRouter = require('./mira');
 const arnoudRouter = require('./arnoud');
+const amberRouter = require('./amber');
 
 // Wout-router
 router.use('/wout/', woutRouter);
@@ -21,6 +22,9 @@ router.use('/mira/', miraRouter);
 
 // Arnoud-router
 router.use('/arnoud/', arnoudRouter);
+
+// Amber-router
+router.use('/amber/', amberRouter);
 
 // Home-router
 router.use('/home/', homeRouter);

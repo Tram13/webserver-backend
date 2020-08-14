@@ -10,6 +10,7 @@ exports.index = function(req, res) {
         home: index + "/home",
         imageOfDay: index + "/imageOfDay",
         mira: index + "/mira",
-        arnoud: index + "/arnoud"
+        arnoud: index + "/arnoud",
+        amber: index + "/amber"
     });
 };
