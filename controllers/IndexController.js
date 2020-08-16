@@ -11,6 +11,7 @@ exports.index = function(req, res) {
         imageOfDay: index + "/imageOfDay",
         mira: index + "/mira",
         arnoud: index + "/arnoud",
-        amber: index + "/amber"
+        amber: index + "/amber",
+        error404: index + "/error404"
     });
 };

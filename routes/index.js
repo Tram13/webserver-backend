@@ -10,6 +10,7 @@ const imageOfDayRouter = require('./imageOfDay');
 const miraRouter = require('./mira');
 const arnoudRouter = require('./arnoud');
 const amberRouter = require('./amber');
+const error404Router = require('./error404')
 
 // Wout-router
 router.use('/wout/', woutRouter);
@@ -19,6 +20,9 @@ router.use('/jonas/', jonasRouter);
 
 // Mira-router
 router.use('/mira/', miraRouter);
+
+// Error404-router
+router.use('/error404/', error404Router);
 
 // Arnoud-router
 router.use('/arnoud/', arnoudRouter);

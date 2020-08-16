@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 
 //TODO: ook hier werkt de update nog niet
 // TODO: Uitzoeken hoe CORS werkt: staat dit correct in NGINX, kan het mooier?
-// TODO: Mooie ERROR 404 voor API
+// TODO: Mooie ERROR Error404 voor API
 // TODO: Hiding de echte folder structuur voor static serves
 
 // Creating express instance
@@ -73,7 +73,7 @@ app.use('/static_images', (req, res, next) => {
 // Setting Main Router
 app.use('/', indexRouter);
 
-// CATCH 404 and forward to error handler
+// CATCH Error404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
 });
@@ -99,7 +99,8 @@ function isWhitelisted(req) {
     const whitelistedMira = "mira/mira_tekening.png|mira/mira_choke.jpg";
     const whitelistedArnoud = "arnoud/arnoud_kijk.png";
     const whitelistedAmber = "amber/amber_brugge.jpg";
-    const whitelists = [whitelistedDefault, whitelistedHome, whitelistedWout, whitelistedJonas, whitelistedMira, whitelistedArnoud, whitelistedAmber];
+    const whitelistedError404 = "error404/error-404.png"
+    const whitelists = [whitelistedDefault, whitelistedHome, whitelistedWout, whitelistedJonas, whitelistedMira, whitelistedArnoud, whitelistedAmber, whitelistedError404];
     let isWhitelisted = false;
     for (let whitelist of whitelists) {
         const regex = new RegExp("^\/(" + whitelist + ")$");
