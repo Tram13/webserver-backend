@@ -1,12 +1,14 @@
+// TODO: dit afwerken, momenteel gewoon copy-paste van suggestioncontroller
+
 import {API_URL} from "../constants/Constants";
 
-const SuggestionModel = require("../models/SuggestionModel");
+const PackingListItemModel = require("../models/PackingListItemModel");
 const {body, validationResult} = require('express-validator');
-const baseUrl = API_URL + "/suggestions";
+const baseUrl = API_URL + "/ardennen"; // TODO: wat moet er hier staan uiteindelijk?
 
 // return all suggestions on GET
 exports.suggestionsList = function (req, res) {
-    SuggestionModel.find().exec((err, suggestionsList) => {
+    PackingListItemModel.find().exec((err, suggestionsList) => {
             if (err) {
                 res.status(500).json({
                     index: API_URL,
@@ -42,7 +44,7 @@ exports.createSuggestionPost = [
         // Extract the validation errors from a request.
         const errors = validationResult(req);
         // Create a gebruiker object with escaped and trimmed data.
-        const newSuggestion = new SuggestionModel(
+        const newSuggestion = new PackingListItemModel(
             {
                 author: req.body.author,
                 message: req.body.message
@@ -70,7 +72,7 @@ exports.createSuggestionPost = [
 // Delete suggestion on DELETE
 exports.deleteSuggestionDelete = function (req, res) {
     // deleting gebruiker
-    SuggestionModel.findByIdAndDelete(req.params.suggestionID).exec((err, _) => {
+    PackingListItemModel.findByIdAndDelete(req.params.suggestionID).exec((err, _) => {
         if (err) {
             res.status(500).json({
                 index: API_URL,
@@ -84,7 +86,7 @@ exports.deleteSuggestionDelete = function (req, res) {
 };
 
 exports.getSuggestionByID = function (req, res) {
-    SuggestionModel.findById(req.params.suggestionID).exec(function (err, suggestion) {
+    PackingListItemModel.findById(req.params.suggestionID).exec(function (err, suggestion) {
         if (err) {
             return res.status(500).json({
                 index: API_URL,
@@ -127,7 +129,7 @@ exports.updateSuggestionPatch = [
         } else {
             // Data from form is valid.
             // Update the suggestion in the database
-            SuggestionModel.findByIdAndUpdate(req.params.suggestionID, updatedSuggestion).exec((err) => {
+            PackingListItemModel.findByIdAndUpdate(req.params.suggestionID, updatedSuggestion).exec((err) => {
                 if (err) {
                     res.status(500).json({suggestion: undefined, error: err});
                 } else {
