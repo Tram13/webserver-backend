@@ -6,14 +6,14 @@ const PackingListItemModel = require("../models/PackingListItemModel");
 const {body, validationResult} = require('express-validator');
 const baseUrl = API_URL + "/ardennen"; // TODO: wat moet er hier staan uiteindelijk?
 
-// return all suggestions on GET
-exports.suggestionsList = function (req, res) {
-    PackingListItemModel.find().exec((err, suggestionsList) => {
+// return all packingList-items on GET
+exports.packingList = function (req, res) {
+    PackingListItemModel.find().exec((err, packingListList) => {
             if (err) {
                 res.status(500).json({
                     index: API_URL,
                     baseUrl: baseUrl,
-                    suggestions: [],
+                    packingListList: [],
                     error: err
                 })
             }
@@ -22,7 +22,7 @@ exports.suggestionsList = function (req, res) {
                 res.status(200).json({
                     index: API_URL,
                     baseUrl: baseUrl,
-                    suggestions: suggestionsList
+                    packingListList: packingListList
                 })
             }
         }
