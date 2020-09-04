@@ -39,10 +39,11 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-//Set up default mongoose connection
+// Set up default mongoose connection
 const mongoDB = 'mongodb://127.0.0.1/express_databank';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useFindAndModify', false);
+
 
 //Get the default connection and
 //Bind connection to error event (to get notification of connection errors)

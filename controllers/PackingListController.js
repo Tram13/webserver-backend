@@ -1,9 +1,9 @@
 // TODO: dit afwerken, momenteel gewoon copy-paste van suggestioncontroller
 
-import {API_URL} from "../constants/Constants";
-
 const PackingListItemModel = require("../models/PackingListItemModel");
 const {body, validationResult} = require('express-validator');
+
+const API_URL = "https://api.tram13.me";
 const baseUrl = API_URL + "/ardennen"; // TODO: wat moet er hier staan uiteindelijk?
 
 // return all packingList-items on GET
