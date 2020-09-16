@@ -1,7 +1,7 @@
-import {API_URL} from "../constants/Constants";
-
 const SuggestionModel = require("../models/SuggestionModel");
 const {body, validationResult} = require('express-validator');
+
+const API_URL = "https://api.tram13.me";
 const baseUrl = API_URL + "/suggestions";
 
 // return all suggestions on GET
