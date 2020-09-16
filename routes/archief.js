@@ -3,6 +3,6 @@ const ArchiefController = require('../controllers/ArchiefController');
 const router = express.Router();
 
 // archief
-router.get('/', ArchiefController.fileslist);
+router.get('/', ArchiefController.ardennen20200911);
 
 module.exports = router;
