@@ -12,6 +12,7 @@ exports.index = function(req, res) {
         mira: index + "/mira",
         arnoud: index + "/arnoud",
         amber: index + "/amber",
-        error404: index + "/error404"
+        error404: index + "/error404",
+        archief: index + "/archief"
     });
 };

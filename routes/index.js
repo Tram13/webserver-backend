@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const indexController = require("../controllers/IndexController");
+
 const woutRouter = require('./wout');
 const jonasRouter = require('./jonas');
 const homeRouter = require('./home');
@@ -10,7 +11,8 @@ const imageOfDayRouter = require('./imageOfDay');
 const miraRouter = require('./mira');
 const arnoudRouter = require('./arnoud');
 const amberRouter = require('./amber');
-const error404Router = require('./error404')
+const error404Router = require('./error404');
+const archiefRouter = require('./archief');
 
 // Wout-router
 router.use('/wout/', woutRouter);
@@ -35,6 +37,9 @@ router.use('/home/', homeRouter);
 
 // Minecraft-router
 router.use('/minecraft/', minecraftRouter);
+
+// Archief-router
+router.use('/archief/', archiefRouter);
 
 // Suggestions-router
 router.use('/suggestions/', suggestionsRouter);
