@@ -101,8 +101,7 @@ function isWhitelisted(req) {
     const whitelistedArnoud = "arnoud/arnoud_kijk.png";
     const whitelistedAmber = "amber/amber_brugge.jpg";
     const whitelistedError404 = "error404/error-404.png"
-    const whitelistedArchief = "archief/2020-09-11_Ardennen.zip"
-    const whitelists = [whitelistedDefault, whitelistedHome, whitelistedWout, whitelistedJonas, whitelistedMira, whitelistedArnoud, whitelistedAmber, whitelistedError404, whitelistedArchief];
+    const whitelists = [whitelistedDefault, whitelistedHome, whitelistedWout, whitelistedJonas, whitelistedMira, whitelistedArnoud, whitelistedAmber, whitelistedError404];
     let isWhitelisted = false;
     for (let whitelist of whitelists) {
         const regex = new RegExp("^\/(" + whitelist + ")$");

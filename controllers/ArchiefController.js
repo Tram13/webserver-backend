@@ -4,7 +4,7 @@ exports.fileslist = (req, res) => {
     res.status(200).json({
         index: index,
         baseUrl : baseUrl,
-        ardennen20200911: baseUrl + "2020-09-11_Ardennen.zip"
+        ardennen20200911: baseUrl + "ardennen20200911"
     });
 };
 
