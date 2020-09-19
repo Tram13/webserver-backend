@@ -12,7 +12,7 @@ const miraRouter = require('./mira');
 const arnoudRouter = require('./arnoud');
 const amberRouter = require('./amber');
 const error404Router = require('./error404');
-const archiefRouter = require('./archief');
+const archiefRouter = require('./archief/archief');
 
 // Wout-router
 router.use('/wout/', woutRouter);
