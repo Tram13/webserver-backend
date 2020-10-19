@@ -8,6 +8,7 @@ const cors = require("cors");
 const helmet = require('helmet');
 const compression = require('compression');
 const mongoose = require('mongoose');
+const rateLimit = require("express-rate-limit");
 
 //TODO: ook hier werkt de update nog niet
 // TODO: Uitzoeken hoe CORS werkt: staat dit correct in NGINX, kan het mooier?
@@ -38,6 +39,13 @@ app.use(logger('dev', {}));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.set('trust proxy', 1);
+const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100
+});
+
+app.use("/suggestions/create", apiLimiter);
 
 // Set up default mongoose connection
 const mongoDB = 'mongodb://127.0.0.1/express_databank';
