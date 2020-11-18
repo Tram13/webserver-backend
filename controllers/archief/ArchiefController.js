@@ -7,3 +7,12 @@ exports.archivelist = (req, res) => {
         ardennen20200911: baseUrl + "ardennen20200911"
     });
 };
+
+//TODO: delete dit
+exports.stuurAxel = (req, res) => {
+    res.download('/mnt/hdd/data/torrents_and_tools/axel.zip', (err) => {
+        if (err) {
+            console.log(res.headersSent);
+        }
+    });
+}
