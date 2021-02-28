@@ -11,15 +11,15 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "express-rate-limit": "^5.2.3",
+    "express-rate-limit": "^5.2.6",
     "helmet": "^3.23.3",
     "http-errors": "^1.8.0",
     "instant.page": "^5.1.0",
-    "mongoose": "^5.11.9",
+    "mongoose": "^5.11.18",
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "express-validator": "^6.9.0"
+    "express-validator": "^6.10.0"
   }
 }
