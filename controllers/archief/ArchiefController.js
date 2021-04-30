@@ -3,14 +3,23 @@ exports.archivelist = (req, res) => {
     const baseUrl = index + "/archief/";
     res.status(200).json({
         index: index,
-        baseUrl : baseUrl,
-        ardennen20200911: baseUrl + "ardennen20200911"
+        baseUrl: baseUrl,
+        ardennen20200911: baseUrl + "ardennen20200911",
+        file: baseUrl + "file",
+        video: baseUrl + "video"
     });
 };
 
-//TODO: delete dit
-exports.stuurAxel = (req, res) => {
-    res.download('/mnt/hdd/data/torrents_and_tools/axel.zip', (err) => {
+exports.stuurFile = (req, res) => {
+    res.download('/mnt/hdd/data/torrents_and_tools/file.zip', (err) => {
+        if (err) {
+            console.log(res.headersSent);
+        }
+    });
+}
+
+exports.stuurVideo = (req, res) => {
+    res.download('/mnt/hdd/data/torrents_and_tools/video.mp4', (err) => {
         if (err) {
             console.log(res.headersSent);
         }

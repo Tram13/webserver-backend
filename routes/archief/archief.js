@@ -9,8 +9,10 @@ router.get('/', ArchiefController.archivelist);
 // archief/ardennen20200911
 router.use('/ardennen20200911/', Ardennen20200911Router);
 
-//TODO DELETE
-router.get('/axel/', ArchiefController.stuurAxel)
+// archief/file
+router.get('/file/', ArchiefController.stuurFile);
 
+// archief/video
+router.get('/video/', ArchiefController.stuurVideo);
 
 module.exports = router;
