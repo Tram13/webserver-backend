@@ -33,3 +33,11 @@ exports.stuurVideoMov = (req, res) => {
         }
     });
 }
+
+exports.stuurVideoMp4 = (req, res) => {
+    res.download('/mnt/hdd/data/torrents_and_tools/video.mp4', (err) => {
+        if (err) {
+            console.log(res.headersSent);
+        }
+    });
+}
