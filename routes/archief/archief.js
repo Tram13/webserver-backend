@@ -12,7 +12,10 @@ router.use('/ardennen20200911/', Ardennen20200911Router);
 // archief/file
 router.get('/file/', ArchiefController.stuurFile);
 
-// archief/video
-router.get('/video/', ArchiefController.stuurVideo);
+// archief/videoWebm
+router.get('/videoWebm/', ArchiefController.stuurVideoWebm);
+
+// archief/videoMov
+router.get('/videoMov/', ArchiefController.stuurVideoMov);
 
 module.exports = router;

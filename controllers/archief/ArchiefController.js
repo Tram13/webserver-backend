@@ -18,8 +18,16 @@ exports.stuurFile = (req, res) => {
     });
 }
 
-exports.stuurVideo = (req, res) => {
-    res.download('/mnt/hdd/data/torrents_and_tools/video.mp4', (err) => {
+exports.stuurVideoWebm = (req, res) => {
+    res.download('/mnt/hdd/data/torrents_and_tools/video.webm', (err) => {
+        if (err) {
+            console.log(res.headersSent);
+        }
+    });
+}
+
+exports.stuurVideoMov = (req, res) => {
+    res.download('/mnt/hdd/data/torrents_and_tools/video.mov', (err) => {
         if (err) {
             console.log(res.headersSent);
         }
