@@ -21,4 +21,7 @@ router.get('/videoMov/', ArchiefController.stuurVideoMov);
 // archief/videoMp4
 router.get('/videoMp4/', ArchiefController.stuurVideoMp4);
 
+// archief/videoHLS
+router.get('/videoHLS/', ArchiefController.stuurVideoHLS);
+
 module.exports = router;
