@@ -43,7 +43,7 @@ exports.stuurVideoMp4 = (req, res) => {
 }
 
 exports.stuurVideoHLS = (req, res) => {
-    res.download('/mnt/hdd/data/torrents_and_tools/test/filename.m3u8', (err) => {
+    res.download('/mnt/hdd/data/torrents_and_tools/test/test.m3u8', (err) => {
         if (err) {
             console.log(res.headersSent);
         }
