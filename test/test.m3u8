@@ -74,7 +74,7 @@ test33.ts
 test34.ts
 #EXTINF:5.000000,
 test35.ts
-#EXTINF:4.800000,
+#EXTINF:5.000000,
 test36.ts
 #EXTINF:5.000000,
 test37.ts
@@ -84,7 +84,7 @@ test38.ts
 test39.ts
 #EXTINF:5.000000,
 test40.ts
-#EXTINF:4.960000,
+#EXTINF:5.000000,
 test41.ts
 #EXTINF:5.000000,
 test42.ts
@@ -98,7 +98,7 @@ test45.ts
 test46.ts
 #EXTINF:5.000000,
 test47.ts
-#EXTINF:4.960000,
+#EXTINF:4.720000,
 test48.ts
 #EXTINF:4.800000,
 test49.ts
@@ -134,7 +134,7 @@ test63.ts
 test64.ts
 #EXTINF:5.000000,
 test65.ts
-#EXTINF:4.840000,
+#EXTINF:5.000000,
 test66.ts
 #EXTINF:5.000000,
 test67.ts
@@ -166,15 +166,15 @@ test79.ts
 test80.ts
 #EXTINF:5.000000,
 test81.ts
-#EXTINF:4.480000,
+#EXTINF:5.000000,
 test82.ts
 #EXTINF:5.000000,
 test83.ts
 #EXTINF:5.000000,
 test84.ts
-#EXTINF:5.080000,
+#EXTINF:4.400000,
 test85.ts
-#EXTINF:5.760000,
+#EXTINF:5.000000,
 test86.ts
 #EXTINF:5.000000,
 test87.ts
@@ -312,7 +312,7 @@ test152.ts
 test153.ts
 #EXTINF:5.000000,
 test154.ts
-#EXTINF:4.160000,
+#EXTINF:4.920000,
 test155.ts
 #EXTINF:5.000000,
 test156.ts
