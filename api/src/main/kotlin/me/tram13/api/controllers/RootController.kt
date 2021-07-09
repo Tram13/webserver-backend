@@ -12,7 +12,7 @@ import java.util.*
 class RootController {
 
     @Value("\${deployment-url}")
-    lateinit var apiUrl: String
+    private lateinit var apiUrl: String
 
     private fun data(): HashMap<String, String> {
         val content: HashMap<String, String> = HashMap()

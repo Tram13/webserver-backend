@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class NatureImageController {
-
-    fun parseResolution(title: String): Pair<Int, Int> {
+    private fun parseResolution(title: String): Pair<Int, Int> {
         val pattern = Regex("[0-9]+[ Xx×]+[0-9]+")
         return if (pattern.containsMatchIn(title)) {
             val resolutionString = pattern.find(title)!!.value
@@ -22,10 +21,9 @@ class NatureImageController {
         } else {
             Pair(0, 0)
         }
-
     }
 
-    fun parseStringToList(input: String): List<JSONObject> {
+    private fun parseStringToList(input: String): List<JSONObject> {
         var depth = 0
         var start = 0
         val templist: MutableList<String> = mutableListOf()
@@ -48,7 +46,7 @@ class NatureImageController {
         return resultlist
     }
 
-    fun getTopImageOfSubreddit(subreddit: String): String {
+    private fun getTopImageOfSubreddit(subreddit: String): String {
         val callUrl = "https://www.reddit.com/r/$subreddit/top.json"
         val response = callUrl.httpGet().header("User-agent", "api.tram13.me bot").responseString(Charsets.UTF_8).second
         val body = JSONObject(response.body().asString("application/json"))
@@ -56,7 +54,7 @@ class NatureImageController {
         return getBestPost(posts)["url"].toString()
     }
 
-    fun getBestPost(posts: List<JSONObject>): JSONObject {
+    private fun getBestPost(posts: List<JSONObject>): JSONObject {
         var postIteratorIndex = 0
         var hasGoodResolution = false
         while (postIteratorIndex < posts.size && !hasGoodResolution) {
@@ -68,7 +66,7 @@ class NatureImageController {
         return posts[postIteratorIndex - 1]
     }
 
-    fun checkResolution(imageJson: JSONObject): Boolean {
+    private fun checkResolution(imageJson: JSONObject): Boolean {
         val resolution = parseResolution(imageJson["title"].toString())
         val width = resolution.first
         val height = resolution.second
