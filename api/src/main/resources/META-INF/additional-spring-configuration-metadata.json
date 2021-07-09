@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "deployment-url",
+      "type": "java.lang.String",
+      "description": "The URL to which the Spring Boot application will be accessible."
+    }
+  ] }
