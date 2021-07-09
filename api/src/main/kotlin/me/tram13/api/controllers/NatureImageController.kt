@@ -28,13 +28,14 @@ class NatureImageController {
         var start = 0
         val templist: MutableList<String> = mutableListOf()
         for (i in input.indices) {
-            when (input[i]) {
-                '{' -> depth++
-                '}' -> depth--
-            }
-            when (depth) {
-                0 -> templist.add(input.substring(start, i))
-                1 -> start = i + 1
+            if (input[i] == '{') {
+                depth++
+            } else if (input[i] == '}') {
+                depth--
+            } else if (depth == 1) {
+                start = i + 1
+            } else if (depth == 0) {
+                templist.add(input.substring(start, i))
             }
         }
         val resultlist: MutableList<JSONObject> = mutableListOf()
