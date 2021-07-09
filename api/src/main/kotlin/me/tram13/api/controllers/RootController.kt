@@ -7,7 +7,6 @@ import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.*
-import kotlin.collections.HashMap
 
 @RestController
 class RootController {

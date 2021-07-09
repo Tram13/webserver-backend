@@ -30,14 +30,13 @@ class NatureImageController {
         var start = 0
         val templist: MutableList<String> = mutableListOf()
         for (i in input.indices) {
-            if (input[i] == '{') {
-                depth++
-            } else if (input[i] == '}') {
-                depth--
-            } else if (depth == 1) {
-                start = i + 1
-            } else if (depth == 0) {
-                templist.add(input.substring(start, i))
+            when (input[i]) {
+                '{' -> depth++
+                '}' -> depth--
+            }
+            when (depth) {
+                0 -> templist.add(input.substring(start, i))
+                1 -> start = i + 1
             }
         }
         val resultlist: MutableList<JSONObject> = mutableListOf()
@@ -65,9 +64,8 @@ class NatureImageController {
             hasGoodResolution = checkResolution(imageJson)
             postIteratorIndex++
         }
-        val best =
-            posts[postIteratorIndex - 1] // Minus 1 because while-loop will always add 1 after each loop, even if it has good resolution
-        return best
+        // Minus 1 because while-loop will always add 1 after each loop, even if it has good resolution
+        return posts[postIteratorIndex - 1]
     }
 
     fun checkResolution(imageJson: JSONObject): Boolean {
