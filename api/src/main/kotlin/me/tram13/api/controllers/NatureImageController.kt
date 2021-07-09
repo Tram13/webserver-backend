@@ -5,6 +5,7 @@ import com.github.kittinunf.fuel.httpGet
 import org.springframework.boot.configurationprocessor.json.JSONObject
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.servlet.view.RedirectView
 
 
 @RestController
@@ -81,9 +82,7 @@ class NatureImageController {
     }
 
     @GetMapping("/natureimage")
-    fun getContent(): HashMap<String, String> {
-        return hashMapOf(
-            "url" to getTopImageOfSubreddit("earthporn")
-        )
+    fun redirect(): RedirectView {
+        return RedirectView(getTopImageOfSubreddit("earthporn"))
     }
 }
