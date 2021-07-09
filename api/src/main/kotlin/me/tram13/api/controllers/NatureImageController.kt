@@ -28,14 +28,19 @@ class NatureImageController {
         var start = 0
         val templist: MutableList<String> = mutableListOf()
         for (i in input.indices) {
-            if (input[i] == '{') {
-                depth++
-            } else if (input[i] == '}') {
-                depth--
-            } else if (depth == 1) {
-                start = i + 1
-            } else if (depth == 0) {
-                templist.add(input.substring(start, i))
+            when {
+                input[i] == '{' -> {
+                    depth++
+                }
+                input[i] == '}' -> {
+                    depth--
+                }
+                depth == 1 -> {
+                    start = i + 1
+                }
+                depth == 0 -> {
+                    templist.add(input.substring(start, i))
+                }
             }
         }
         val resultlist: MutableList<JSONObject> = mutableListOf()
@@ -72,7 +77,6 @@ class NatureImageController {
         val width = resolution.first
         val height = resolution.second
         val aspectRatio: Double = width / height.toDouble()
-        println(aspectRatio)
         return width >= 3000 && height >= 2000 && aspectRatio > 1
     }
 
