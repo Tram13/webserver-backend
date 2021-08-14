@@ -32,9 +32,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
+			<version>2.0.1.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -97,6 +96,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<executable>true</executable>
 				</configuration>
 			</plugin>
 			<plugin>
