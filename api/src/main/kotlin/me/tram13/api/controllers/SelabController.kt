@@ -14,7 +14,7 @@ public class SelabController {
 
     @GetMapping("/all_results")
     fun redirectRes(): RedirectView {
-        return RedirectView("https://i.imgur.com/inBDWg5.png")
+        return RedirectView("https://selabenv.tram13.me/Recordings/resultaten.png")
     }
 
     @GetMapping("/workspaces")
