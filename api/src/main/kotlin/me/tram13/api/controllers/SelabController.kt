@@ -8,7 +8,22 @@ import org.springframework.web.servlet.view.RedirectView
 public class SelabController {
 
     @GetMapping("/Simulatie_omgeving")
-    fun redirect(): RedirectView {
+    fun redirectSimEnv(): RedirectView {
         return RedirectView("https://selabenv.tram13.me")
+    }
+
+    @GetMapping("/all_results")
+    fun redirectRes(): RedirectView {
+        return RedirectView("https://i.imgur.com/inBDWg5.png")
+    }
+
+    @GetMapping("/workspaces")
+    fun redirectWorkspaces(): RedirectView {
+        return RedirectView("https://selabenv.tram13.me/workspaces/workspaces.html")
+    }
+
+    @GetMapping("/image_reinforcement_learning")
+    fun redirectRL(): RedirectView {
+        return RedirectView("https://selabenv.tram13.me/Recordings/rl_progress.mp4")
     }
 }
