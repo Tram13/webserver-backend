@@ -14,11 +14,14 @@ import java.nio.file.Paths
 @RestController
 class FilesController {
 
+    private val downloadDirectory: Path = Paths.get("/", "mnt", "hdd", "data", "webserver_data")
+
     @GetMapping("/lille_2023")
     fun getLilleZip(): ResponseEntity<out Any> {
-        val filePath = Paths.get(Path.of("lille_2023.zip").toString())
+        val filePath = Paths.get(downloadDirectory.resolve("lille_2023.zip").toString())
         return try {
-            val urlResource = UrlResource(filePath.toUri())
+            val urlResource = UrlResource(filePath.toAbsolutePath().toUri())
+            print(urlResource.toString())
             ResponseEntity
                 .status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
