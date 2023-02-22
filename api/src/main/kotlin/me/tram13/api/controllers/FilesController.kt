@@ -1,6 +1,7 @@
 package me.tram13.api.controllers
 
 import org.springframework.core.io.UrlResource
+import org.springframework.http.ContentDisposition
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -22,10 +23,15 @@ class FilesController {
         return try {
             val urlResource = UrlResource(filePath.toAbsolutePath().toUri())
             print(urlResource.toString())
+            // Creating headers
+            val headers = HttpHeaders()
+            headers.contentType = MediaType.APPLICATION_OCTET_STREAM
+            headers.contentDisposition = ContentDisposition.attachment().filename(filePath.toString()).build()
+            headers.contentLength = urlResource.contentLength()
+            // Creating response
             ResponseEntity
                 .status(HttpStatus.OK)
-                .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + urlResource.filename + "\"")
+                .headers(headers)
                 .body(urlResource)
         } catch (e: MalformedURLException) {
             e.printStackTrace()
