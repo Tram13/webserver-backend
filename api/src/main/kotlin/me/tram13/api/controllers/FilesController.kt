@@ -22,6 +22,7 @@ class FilesController {
     fun getLilleZip(): ResponseEntity<out Serializable> {
 
         val file: InputStream? = this::class.java.getResourceAsStream(downloadDirectory.resolve("lille_2023.zip").toString())
+        print(downloadDirectory.resolve("lille_2023.zip").toString())
         return if (file != null) {
             ResponseEntity.status(HttpStatus.OK).body(file.readBytes())
         } else {
