@@ -13,7 +13,7 @@ import java.nio.file.Paths
 @RestController
 class FilesController {
 
-    private val downloadDirectory: Path = Paths.get("/mnt/hdd/data/webserver_data")
+    private val downloadDirectory: Path = Paths.get("mnt", "hdd", "data", "webserver_data")
 
     @GetMapping(
         value = ["/lille_2023"],
