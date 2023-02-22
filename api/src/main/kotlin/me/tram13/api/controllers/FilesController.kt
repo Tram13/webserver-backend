@@ -16,7 +16,8 @@ import java.nio.file.Paths
 class FilesController {
 
     private val downloadDirectory: Path = Paths.get("/", "mnt", "hdd", "data", "webserver_data")
-
+    // TODO //
+    // DEZE SHIT WERKT NIET, enkel op windows als ik het lokaal run?
     @GetMapping("/lille_2023")
     fun getLilleZip(): ResponseEntity<out Any> {
         val filePath = Paths.get(downloadDirectory.resolve("lille_2023.zip").toString())
@@ -26,7 +27,7 @@ class FilesController {
             // Creating headers
             val headers = HttpHeaders()
             headers.contentType = MediaType.APPLICATION_OCTET_STREAM
-            headers.contentDisposition = ContentDisposition.attachment().filename(filePath.toString()).build()
+            headers.contentDisposition = ContentDisposition.attachment().filename(filePath.fileName.toString()).build()
             headers.contentLength = urlResource.contentLength()
             // Creating response
             ResponseEntity
