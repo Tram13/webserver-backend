@@ -16,16 +16,14 @@ class FilesController {
 
     private val downloadDirectory: Path = Paths.get("/", "mnt", "hdd", "data", "webserver_data")
 
-    @GetMapping(
-        value = ["/lille_2023"],
-        produces = [MediaType.APPLICATION_OCTET_STREAM_VALUE]
-    )
+    @GetMapping("/lille_2023")
     fun getLilleZip(): ResponseEntity<out Any> {
         val filePath = Paths.get(downloadDirectory.resolve("lille_2023.zip").toString())
         return try {
             val urlResource = UrlResource(filePath.toUri())
             ResponseEntity
                 .status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + urlResource.filename + "\"")
                 .body(urlResource)
         } catch (e: MalformedURLException) {
