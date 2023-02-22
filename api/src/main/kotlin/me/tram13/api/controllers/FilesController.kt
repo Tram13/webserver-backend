@@ -7,7 +7,6 @@ import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
-import java.io.File
 import java.net.MalformedURLException
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -15,7 +14,7 @@ import java.nio.file.Paths
 @RestController
 class FilesController {
 
-    private val downloadDirectory: Path = Paths.get("mnt", "hdd", "data", "webserver_data")
+    private val downloadDirectory: Path = Paths.get("/", "mnt", "hdd", "data", "webserver_data")
 
     @GetMapping(
         value = ["/lille_2023"],
@@ -35,7 +34,5 @@ class FilesController {
                 .status(HttpStatus.NOT_FOUND)
                 .body("File not found on server: ${filePath.toUri()}")
         }
-
-
     }
 }
